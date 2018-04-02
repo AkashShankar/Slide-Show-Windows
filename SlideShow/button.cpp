@@ -49,6 +49,12 @@ void Button::initText(std::string text, int x, int y){
     adjustPosition();
 }
 
+void Button::reInitText(std::string text, int x, int y) {
+	if (texture != nullptr)
+		SDL_DestroyTexture(texture);
+	initText(text, x, y);
+}
+
 void Button::setTextRect(int x, int y){
     this->textRect.x = x;
     this->textRect.y = y;
@@ -91,7 +97,7 @@ void Button::render(){
 
 void Button::checkAndTakeAction(){
     int x  = 0, y = 0;
-    clickedToAction = false;
+    //clickedToAction = false; // Do not uncomment this
     if(event.type == SDL_MOUSEMOTION || event.type == SDL_MOUSEBUTTONDOWN
        || event.type == SDL_MOUSEBUTTONUP ){
         SDL_GetMouseState(&x, &y);
@@ -127,7 +133,7 @@ void Button::checkBounds1() {
 }
 
 void Button::process() {
-    //checkAndTakeAction();
+    checkAndTakeAction();
     highLightButton();
 }
 

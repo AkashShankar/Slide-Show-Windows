@@ -8,14 +8,16 @@ private:
     Mix_Music *music{nullptr};
     std::string path;
 public:
-    Timer timer;
+    //Timer timer;
     Sound(std::string path);
     Sound() { path = ""; };
-    void setStartTime(double s);
-    void setResetTime(double r);
-    void setPath(std::string path);
-    void process();
-    void start();
-    void init();
-    void destroy();
+	inline Mix_Music* get_music() { return music; }
+	void setPath(std::string path);
+	void init();
+	void destroy();
+
+    //void setStartTime(double s);
+    //void setResetTime(double r);
+    //void process();
+    //void start();
 };

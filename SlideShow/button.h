@@ -24,8 +24,6 @@ private:
     SDL_Renderer *renderer;
     TTF_Font *font;
     SDL_Texture *texture;
-    SDL_Rect buttonRect;
-    SDL_Rect textRect;
     SDL_Color borderCol;
     SDL_Color insideCol;
     SDL_Color highlightCol;
@@ -45,12 +43,15 @@ public:
     void(*action1)(void) = nullptr;
     bool clickedToMove = false;
     bool clickedToAction = false;
+	SDL_Rect buttonRect;
+	SDL_Rect textRect;
 public:
     Button(std::string fontPath, int fontSize, int xPad, int yPad);
     Button();
     void init(std::string fontPath, int fontSize, int xPad, int yPad);
     void initFont();
     void initText(std::string text, int x, int y);
+	void reInitText(std::string text, int x, int y);
     void setRenderer(SDL_Renderer *renderer);
     void setColors(Color bCol, Color hCol, Color iColor, Color fCol);
     void highLightButton();

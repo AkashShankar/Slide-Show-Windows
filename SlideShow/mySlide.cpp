@@ -67,10 +67,7 @@ void MySlide::process(){
     }
     for(unsigned long i = 0; i < sounds.size(); i++) {
         sounds[i].processButton();
-        if(sounds[i].getClicked())
-            cout << "Clicked: " << i + 1 << endl;
     }
-    
 }
 
 void MySlide::setPriority(){
