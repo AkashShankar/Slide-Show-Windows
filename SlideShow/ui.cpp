@@ -59,6 +59,7 @@ void setActionsForAll() {
 
 void save(MySlide& _s) {
 	_s.save(_s.fileName);
+	std::cout << "fileName: " << _s.fileName << std::endl;
 	std::cout << "Saved slide with id: " << _s.id << std::endl;
 }
 
