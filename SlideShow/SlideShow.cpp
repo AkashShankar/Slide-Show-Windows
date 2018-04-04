@@ -6,65 +6,51 @@
 
 extern Screen mainScreen;
 
-void SlideShow::addSlide(MySlide & _s) {
-	_slides.push_back(_s);
-}
+const char* e1 = "Slide with id cannot be processed";
 
 int SlideShow::getIndexFromId(int id) {
-	for (unsigned long i = 0; i < _slides.size(); i++) {
-		if (_slides[i].getSlide().getId() == id)
+	int numSlides = getNumSlides(fileName);
+	for (int i = 1; i < numSlides; i++) {
+		int _tmpId = getSlideIdNumber(fileName, i);
+		if (_tmpId == id) {
 			return i;
+		}
 	}
 	return -1;
 }
 
-void SlideShow::updateSlide(int id) {
-	if (!ifSlideIdExists(fileName, id)) {
-		int index = getIndexFromId(id);
-		_slides[index].update();
+void SlideShow::setCurrentId(int id) {
+	if (ifSlideIdExists(fileName, id)) {
+		this->currentSlideId = id;
+		currentIndex = getIndexFromId(id) -1;
 	}
 	else {
-		std::cout << "Slide with id: " << id << "Cannot be processed" << std::endl;
+		throw e1;
 	}
 }
 
-void SlideShow::loadSlide(int id) {
-	if (ifSlideIdExists(fileName, id)) {
-		int index = getIndexFromId(id);
-		MySlide& tmpSlide = _slides[index];
-		tmpSlide.loadSlide(index + 1, fileName, mainScreen.getRenderer());
-	}
-	else {
-		std::cout << "Slide with id: " << id << "Cannot be processed" << std::endl;
-	}
+void SlideShow::updateSlide() {
+	_slides[currentIndex].update();
 }
 
-void SlideShow::processSlide(int id) {
-	if (ifSlideIdExists(fileName, id)) {
-		int index = getIndexFromId(id);
-		_slides[index].process();
-	}
-	else {
-		std::cout << "Slide with id: " << id << "Cannot be processed" << std::endl;
-	}
+void SlideShow::loadSlide() {
+	MySlide tmpSlide;
+	tmpSlide.loadSlide(currentIndex + 1, fileName, mainScreen.getRenderer());
+	_slides.push_back(tmpSlide);
 }
 
-void SlideShow::renderSlide(int id) {
-	if (ifSlideIdExists(fileName, id)) {
-		int index = getIndexFromId(id);
-		_slides[index].renderSlide();
-	}
-	else {
-		std::cout << "Slide with id: " << id << "Cannot be processed" << std::endl;
-	}
+void SlideShow::processSlide() {
+	_slides[currentIndex].process();
 }
 
-void SlideShow::destroySlide(int id) {
-	if (ifSlideIdExists(fileName, id)) {
-		int index = getIndexFromId(id);
-		_slides[index].destroy();
-	}
-	else {
-		std::cout << "Slide with id: " << id << "Cannot be processed" << std::endl;
-	}
+void SlideShow::renderSlide() {
+	_slides[currentIndex].renderSlide();
+}
+
+void SlideShow::destroySlide() {
+	_slides[currentIndex].destroy();
+}
+
+MySlide SlideShow::getCurrentSlide() {
+	return _slides[currentIndex];
 }
