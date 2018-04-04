@@ -1,37 +1,61 @@
 #include "stdafx.h"
 #include <iostream>
 #include "mySound.h"
-using namespace std;
+#include "utilities.h"
+#include "fileHandle.h"
 
 extern Screen mainScreen;
 
 void MySound::setInfo(std::vector<std::string> sl) {
     if(sl[0] == "Sound") {
-        //this->sTime = stoi(sl[1].substr(2, sl[1].length() - 2));
-        //this->rTime = stoi(sl[2].substr(2, sl[2].length() - 2));
-        string tmp = sl[3].substr(5, sl[3].length() - 5);
-        this->x = stoi(sl[4].substr(2, sl[4].length() - 2));
-        this->y = stoi(sl[5].substr(2, sl[5].length() - 2));
-        this->path = sl[6].substr(5, sl[6].length() - 5);
+		_vec = sl;
+		current = getStringFromVector(_vec);
+		text = sl[1].substr(5, sl[1].length() - 5);
+        this->x = stoi(sl[2].substr(2, sl[2].length() - 2));
+        this->y = stoi(sl[3].substr(2, sl[3].length() - 2));
+        this->path = sl[4].substr(5, sl[4].length() - 5);
         sound.setPath(this->path);
         sound.init();
-        //sound.setStartTime(this->sTime);
-        //sound.setResetTime(this->rTime);
         initButton();
-        button.initText(tmp, this->x, this->y);
+        button.initText(text, this->x, this->y);
     }
     else if(sl[0] == "Image" || sl[0] == "Text") {
-        cout << sl[0] << " is not a Sound." << endl;
+        std::cout << sl[0] << " is not a Sound." << std::endl;
     }
     else {
-        cout << "Unknown type: " << sl[0] << endl;
+        std::cout << "Unknown type: " << sl[0] << std::endl;
     }
+}
+
+std::vector<std::string> MySound::getUpdatedVector() {
+	std::string _tmp;
+	_tmp = "x:";
+	_tmp += std::to_string(button.textRect.x);
+	_vec.erase(_vec.begin() + 2);
+	_vec.insert(_vec.begin() + 2, _tmp);
+
+	_tmp = "y:";
+	_tmp += std::to_string(button.textRect.y);
+	_vec.erase(_vec.begin() + 3);
+	_vec.insert(_vec.begin() + 3, _tmp);
+
+	button.adjustPosition();
+
+	return _vec;
+}
+
+void MySound::save(std::string fileName) {
+	std::vector<std::string> _tmpVec = getUpdatedVector();
+	std::string _tmpStr = getStringFromVector(_tmpVec);
+	int line = getLineWhichContains(fileName, current);
+	replaceLine(fileName, _tmpStr, line);
+	current = _tmpStr;
 }
 
 void MySound::checkToPlay() {
 	static bool test = false;
 	if (getClicked() != test) {
-		std::string _t = path;
+		std::string _t = text;
 		if (!Mix_PlayingMusic())
 			playMusic = true;
 		else if (Mix_PausedMusic()) {

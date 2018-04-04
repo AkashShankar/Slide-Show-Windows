@@ -12,10 +12,10 @@ private:
     std::string text;
     std::string fontPath;
     int fontSize;
-    SDL_Rect rect;
 public:
     SDL_Renderer *renderer;
     bool clicked = false;
+	SDL_Rect rect;
 public:
     Text(std::string fontPath, int fontSize);
     Text() {}

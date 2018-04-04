@@ -128,3 +128,13 @@ void putColorToPixel(Uint32 &number, SDL_Color color){
 double map(double from, double fromRange, double toRange){
     return ( from / fromRange ) * toRange;
 }
+
+std::string getStringFromVector(std::vector<std::string> _t) {
+	std::string _tmpStr;
+	for (unsigned long i = 0; i < _t.size(); i++) {
+		_tmpStr += _t[i];
+		if (i != _t.size() - 1)
+			_tmpStr += " ";
+	}
+	return _tmpStr;
+}

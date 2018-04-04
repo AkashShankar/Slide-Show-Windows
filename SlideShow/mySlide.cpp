@@ -8,48 +8,60 @@ extern SDL_Event event;
 extern const Uint8 *keyState;
 vector<int> sortedImagesIndex;
 
-void loadSlide(MySlide &slide, int slideNumber, std::string fileName, SDL_Renderer *renderer){
+void MySlide::loadSlide(int slideNumber, std::string fileName, SDL_Renderer *renderer) {
     if(isFileSlideShow(fileName)){
         int numSlides = getNumSlides(fileName);
         if(numSlides < (slideNumber+1))
             displaySlideNumOverflow(slideNumber);
         else {
-            slide.renderer = renderer;
+			this->fileName = fileName;
+            this->renderer = renderer;
             int id = getIdFromSlide(fileName, slideNumber);
-            slide.slide.setId(id);
+			cout << "Slide with id: " << id << " loaded" << endl;
+            this->slide.setId(id);
+			this->id = id;
             Slide tmp;
             loadSlideWithId(tmp, fileName, id);
-            slide.slide = tmp;
+            this->slide = tmp;
             unsigned long numImages = tmp.getSize(IMAGE);
             unsigned long numTexts = tmp.getSize(TEXT);
             unsigned long numSounds = tmp.getSize(SOUND);
             for ( unsigned long i = 0; i < numImages; i++ ) {
-                vector<string> tmpVec = slide.slide.getVector(i , IMAGE);
+                vector<string> tmpVec =this->slide.getVector(i , IMAGE);
                 MyImage tmpImg;
-                slide.images.push_back(tmpImg);
-                slide.images[i].setInfo(tmpVec);
-                slide.images[i].setTexture(slide.renderer);
+                this->images.push_back(tmpImg);
+				this->images[i].setInfo(tmpVec);
+				this->images[i].setTexture(this->renderer);
             }
             for(unsigned long i = 0; i < numTexts; i++) {
-                vector<string> tmpVec = slide.slide.getVector(i, TEXT);
+                vector<string> tmpVec = this->slide.getVector(i, TEXT);
                 MyText tmpTxt;
-                slide.texts.push_back(tmpTxt);
-                slide.texts[i].setInfo(tmpVec);
-                slide.texts[i].init(slide.renderer);
+				this->texts.push_back(tmpTxt);
+				this->texts[i].setInfo(tmpVec);
+				this->texts[i].init(this->renderer);
             }
             for(unsigned long i = 0; i < numSounds; i++) {
-                vector<string> tmpVec = slide.slide.getVector(i, SOUND);
+                vector<string> tmpVec = this->slide.getVector(i, SOUND);
                 MySound tmpSound;
-                slide.sounds.push_back(tmpSound);
-                slide.sounds[i].setInfo(tmpVec);
+				this->sounds.push_back(tmpSound);
+				this->sounds[i].setInfo(tmpVec);
             }
         }
-        slide.slide.setId(getIdFromSlide(fileName, slideNumber));
-        slide.setPriority();
-        sortedImagesIndex = slide.getImageSorted();
+		this->slide.setId(getIdFromSlide(fileName, slideNumber));
+		this->setPriority();
+        sortedImagesIndex = this->getImageSorted();
     }
     else
         displayFileNotSlideShow(fileName);
+}
+
+void MySlide::save(std::string fileName) {
+	for (unsigned long i = 0; i < images.size(); i++)
+		images[i].save(fileName);
+	for (unsigned long i = 0; i < sounds.size(); i++)
+		sounds[i].save(fileName);
+	for (unsigned long i = 0; i < texts.size(); i++)
+		texts[i].save(fileName);
 }
 
 void MySlide::process(){
@@ -91,15 +103,15 @@ void MySlide::checkAndBringToFront() {
 
 void MySlide::update() {
     for(unsigned long i = 0; i < sounds.size(); i++) {
-        sounds[i].processSound();
+		sounds[i].processSound();
     }
 }
 
 void MySlide::checkAndChangeAlpha(int index){
     if(keyState[SDL_SCANCODE_P])
-        images[index].changeAlpha_Image(true);
+        images[index].changeAlpha_Image(true); // Increase alpha
     else if(keyState[SDL_SCANCODE_O])
-        images[index].changeAlpha_Image(false);
+        images[index].changeAlpha_Image(false); // Decrease alpha
 }
 
 void MySlide::setHighestPriorityToImageWithIndex(int index) {

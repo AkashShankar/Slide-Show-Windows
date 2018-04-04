@@ -51,6 +51,8 @@ void displayVector(std::vector<std::string> vec);
 void splitString(std::string theString, std::vector<std::string> &vec, char ch);
 std::vector<std::string> split(std::string str);
 void displaySlideInfo(Slide s);
+int getLineWhichContains(std::string fileName, std::string text);
+void replaceLine(std::string  fileName, std::string text, int line);
 
 /* ----------------- Needed Functions --------------------- */
 bool isFileSlideShow(std::string fileName);

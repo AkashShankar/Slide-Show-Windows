@@ -25,13 +25,14 @@ void Slide::splitAndInsert(string str, Resource type){
 }
 
 vector<string> Slide::getVector(int index, Resource type){
-    if(type == IMAGE)
+	if(type == IMAGE)
         return Images[index];
     else if(type == SOUND)
         return Sounds[index];
     else if(type == TEXT)
         return Texts[index];
     vector<string> empty;
+	std::cout << "Returning empty string" << std::endl;
     return empty;
 }
 
@@ -440,6 +441,27 @@ void displaySlideInfo(Slide s){
         displayVector(s.getVector(i, SOUND));
     for(unsigned long i=0;i<s.getSize(TEXT);i++)
         displayVector(s.getVector(i, TEXT));
+}
+
+int getLineWhichContains(std::string fileName, std::string text)
+{
+	int totalLines = getNumLines(fileName);
+	int count = 0;
+	for (int i = 1; i <= totalLines; i++) {
+		count++;
+		std::string _tmp = getLine(fileName, i);
+		if (_tmp == text)
+			return count;
+	}
+	return -1;
+}
+
+void replaceLine(std::string fileName, std::string text, int line)
+{
+	int totalLines = getNumLines(fileName);
+	if (line > totalLines)
+		return;
+	insertToFile(fileName, text, line, false);
 }
 
 void putToSlideWithId(string fileName, int id, string text){

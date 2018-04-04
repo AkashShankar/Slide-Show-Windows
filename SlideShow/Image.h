@@ -14,8 +14,6 @@ private:
     SDL_Texture *texture = nullptr;
     SDL_Renderer *renderer = nullptr;
     Uint32 pixelFormat = SDL_PIXELFORMAT_RGBA8888;
-    SDL_Rect srcRect = {0,0,0,0};
-    SDL_Rect desRect = {0,0,0,0};
     Uint32 currentColor = 0;
     Uint32 toColor = 0;
     void *buffer = nullptr;
@@ -26,6 +24,8 @@ private:
     int colorRange = 15;
 public:
     bool clicked = false;
+	SDL_Rect srcRect = { 0,0,0,0 };
+	SDL_Rect desRect = { 0,0,0,0 };
 public:
     Image();
     void setPath(std::string path);

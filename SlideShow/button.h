@@ -5,6 +5,8 @@
 #include "utilities.h"
 #include "screen.h"
 
+class MySlide;
+
 /*
  Button b1("TNR.ttf", 20, 10, 10);
  b1.initFont();
@@ -35,12 +37,12 @@ private:
     std::string text;
 private:
     void setTextRect(int x, int y);
-    void adjustPosition();
     void render();
     void drawRect(Screen &sc);
     bool isMouseOnButton(int x, int y);
 public:
     void(*action1)(void) = nullptr;
+	void(*action2)(MySlide&) = nullptr;
     bool clickedToMove = false;
     bool clickedToAction = false;
 	SDL_Rect buttonRect;
@@ -56,8 +58,11 @@ public:
     void setColors(Color bCol, Color hCol, Color iColor, Color fCol);
     void highLightButton();
     void checkAndTakeAction();
+	void checkAndTakeAction(MySlide&);
     void process();
+	void process(MySlide&);
     void drawButton(Screen sc);
     void checkBounds1();
     void destroy();
+	void adjustPosition();
 };

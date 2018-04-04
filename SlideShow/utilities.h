@@ -1,6 +1,9 @@
 #pragma once
 #include <SDL.h>
 #include <string>
+#include <vector>
+
+std::string getStringFromVector(std::vector<std::string> _t);
 
 enum Resource{
     TEXT , IMAGE , SOUND

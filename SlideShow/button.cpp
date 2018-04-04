@@ -123,6 +123,33 @@ void Button::checkAndTakeAction(){
     }
 }
 
+void Button::checkAndTakeAction(MySlide& _s) {
+	int x = 0, y = 0;
+	//clickedToAction = false; // Do not uncomment this
+	if (event.type == SDL_MOUSEMOTION || event.type == SDL_MOUSEBUTTONDOWN
+		|| event.type == SDL_MOUSEBUTTONUP) {
+		SDL_GetMouseState(&x, &y);
+		if (event.type == SDL_MOUSEBUTTONDOWN) {
+			if (isMouseOnButton(x, y)) {
+				if (event.button.button == SDL_BUTTON_LEFT) {
+					if (action2 != nullptr)
+						action2(_s);
+					clickedToMove = true;
+					clickedToAction = !clickedToAction;
+				}
+			}
+		}
+		if (event.type == SDL_MOUSEBUTTONUP) {
+			clickedToMove = false;
+		}
+		if (clickedToMove && keyState[SDL_SCANCODE_SPACE]) {
+			textRect.x = x;
+			textRect.y = y;
+			clickedToAction = false;
+			adjustPosition();
+		}
+	}
+}
 
 void Button::checkBounds1() {
     if(textRect.y < upperBorder.y + 10 || textRect.x < leftBorder.x + 10) {
@@ -135,6 +162,11 @@ void Button::checkBounds1() {
 void Button::process() {
     checkAndTakeAction();
     highLightButton();
+}
+
+void Button::process(MySlide& _s) {
+	checkAndTakeAction(_s);
+	highLightButton();
 }
 
 void Button::highLightButton() {

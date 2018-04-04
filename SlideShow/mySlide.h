@@ -8,16 +8,21 @@
 class MySlide{
 private:
     Slide slide;
-    std::string fileName;
-    int id = -1;
     SDL_Renderer *renderer = nullptr;
     std::vector<MyImage> images;
     std::vector<MyText> texts;
     std::vector<MySound> sounds;
     std::vector<int> imagePriority;
 public:
-    friend void loadSlide(MySlide &slide, int slideNumber , std::string fileName, SDL_Renderer *renderer);
+	std::string fileName;
+	int id = -1;
+public:
+    void loadSlide(int slideNumber , std::string fileName, SDL_Renderer *renderer);
     inline Slide getSlide() { return this->slide; };
+	inline MyImage getImage(int index) { return images[index]; }
+	inline MyText getText(int index) { return texts[index]; }
+	inline MySound getSound(int index) { return sounds[index]; }
+	void save(std::string fileName);
     void renderSlide();
     void setPriority();
     void checkAndBringToFront();

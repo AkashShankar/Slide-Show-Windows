@@ -9,8 +9,11 @@ private:
     Button button;
     Resource resType = SOUND;
     std::string path;
+	std::string text;
     int x  = 400;
     int y = 400;
+	std::vector<std::string> _vec;
+	std::string current;
 public:
     Sound sound;
 	bool playMusic = false;
@@ -24,4 +27,6 @@ public:
     void processSound();
     void processButton();
     bool getClicked();
+	std::vector<std::string> getUpdatedVector();
+	void save(std::string fileName);
 };

@@ -11,7 +11,8 @@ private:
     SDL_Rect rect;
     std::string path;
     Resource resType;
-    //Image img;
+	std::vector<std::string> _vec;
+	std::string current;
 public:
     void setInfo(std::vector<std::string> sl);
     void setTexture(SDL_Renderer *renderer);
@@ -21,4 +22,6 @@ public:
     void displayInfo();
     void renderDes();
     void destroy();
+	std::vector<std::string> getUpdatedVector();
+	void save(std::string fileName);
 };

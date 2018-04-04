@@ -1,12 +1,16 @@
 #include "stdafx.h"
 #include <iostream>
 #include "myImage.h"
+#include "utilities.h"
+#include "fileHandle.h"
 
 using namespace std;
 
 void MyImage::setInfo(std::vector<std::string> sl) {
     if(sl[0] == "Image") {
-        this->resType = IMAGE;
+		_vec = sl;
+		current = getStringFromVector(_vec);
+		this->resType = IMAGE;
         this->rect.x = stoi(sl[1].substr(2, sl[1].length() - 2));
         this->rect.y = stoi(sl[2].substr(2, sl[2].length() - 2));
         this->rect.w = stoi(sl[3].substr(2, sl[3].length() - 2));
@@ -19,6 +23,39 @@ void MyImage::setInfo(std::vector<std::string> sl) {
     else {
         cout << "Unknown type: " << sl[0] << endl;
     }
+}
+
+std::vector<std::string> MyImage::getUpdatedVector() {
+	std::string _t1 = "x:";
+
+	_t1 +=  to_string(desRect.x);
+	_vec.erase(_vec.begin() + 1);
+	_vec.insert(_vec.begin() + 1, _t1);
+	
+	_t1 = "y:";
+	_t1 += to_string(desRect.y);
+	_vec.erase(_vec.begin() + 2);
+	_vec.insert(_vec.begin() + 2, _t1);
+
+	_t1 = "w:";
+	_t1 += to_string(desRect.w);
+	_vec.erase(_vec.begin() + 3);
+	_vec.insert(_vec.begin() + 3, _t1);
+
+	_t1 = "h:";
+	_t1 += to_string(desRect.h);
+	_vec.erase(_vec.begin() + 4);
+	_vec.insert(_vec.begin() + 4, _t1);
+	
+	return _vec;
+}
+
+void MyImage::save(std::string fileName) {
+	std::vector<std::string> _tmpVec = getUpdatedVector();
+	std::string _tmpStr = getStringFromVector(_tmpVec);
+	int line = getLineWhichContains(fileName, current);
+	replaceLine(fileName, _tmpStr, line);
+	current = _tmpStr;
 }
 
 void MyImage::setTexture(SDL_Renderer *renderer) {

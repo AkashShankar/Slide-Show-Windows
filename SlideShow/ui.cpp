@@ -9,13 +9,14 @@ using namespace std;
 /* External Variables */
 extern Screen mainScreen;
 extern Screen inputScreen;
+extern bool isRunning;
 /* External Variables */
 
 /* Global Variables */
 SDL_Rect upperBorder;
 SDL_Rect leftBorder;
-int paddingX = 7 , paddingY = 6 , buttonFontSize = 22;
-string buttonFontPath = "28DaysLater.ttf";
+int paddingX = 6 , paddingY = 5 , buttonFontSize = 20;
+string buttonFontPath = "TNR_Bold.ttf";
 Color defHCol = BLUE , defBCol = BLACK , defICol = TEAL , defFCol = YELLOW;
 Button exitButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button openButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
@@ -46,6 +47,33 @@ void setNewSoundButton(int x, int y);
 void setInputCloseButton(int x, int y);
 /* Declaration */
 
+void save(MySlide& _s);
+void exit();
+
+void initOthers();
+
+void setActionsForAll() {
+	saveButton.action2 = save;
+	exitButton.action1 = exit;
+}
+
+void save(MySlide& _s) {
+	_s.save(_s.fileName);
+	std::cout << "Saved slide with id: " << _s.id << std::endl;
+}
+
+void exit() {
+	isRunning = false;
+}
+
+void processSaveButton(MySlide& _s) {
+	saveButton.process(_s);
+}
+ 
+void initOthers() {
+	setActionsForAll();
+}
+
 /* -------------UI Functions -------------*/
 void initUI(){
     initUpperBorder();
@@ -59,6 +87,7 @@ void initUI(){
     setNewTextButton(630, 20);
     setNewSoundButton(770, 20);
     setInputCloseButton(30, 20);
+	initOthers();
 }
 
 void processMainUI() {
@@ -66,7 +95,7 @@ void processMainUI() {
         exitButton.process();
         openButton.process();
         closeButton.process();
-        saveButton.process();
+        //saveButton.process();
         newSlideButton.process();
         newImageButton.process();
         newTextButton.process();
