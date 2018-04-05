@@ -10,8 +10,8 @@ const char* e1 = "Slide with id cannot be processed";
 
 int SlideShow::getIndexFromId(int id) {
 	int numSlides = getNumSlides(fileName);
-	for (int i = 1; i < numSlides; i++) {
-		int _tmpId = getSlideIdNumber(fileName, i);
+	for (int i = 0; i < numSlides; i++) {
+		int _tmpId = getSlideIdNumber(fileName, i + 1);
 		if (_tmpId == id) {
 			return i;
 		}
@@ -22,7 +22,7 @@ int SlideShow::getIndexFromId(int id) {
 void SlideShow::setCurrentId(int id) {
 	if (ifSlideIdExists(fileName, id)) {
 		this->currentSlideId = id;
-		currentIndex = getIndexFromId(id) -1;
+		currentIndex = getIndexFromId(id);
 	}
 	else {
 		throw e1;

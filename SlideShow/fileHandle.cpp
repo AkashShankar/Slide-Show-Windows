@@ -501,7 +501,7 @@ void deleteSlideWithId(string fileName, int id){
 
 int getSlideIdNumber(string fileName, int slide){
     if(isSlideWithinRange(fileName, slide)){
-        int startLine = getSlideLineNumber(fileName, slide, true) - 1;
+		int startLine = getSlideLineNumber(fileName, slide, true) - 1;
         string tmpText = getLine(fileName, startLine);
         return stoi(tmpText);
     }
@@ -513,8 +513,9 @@ bool ifSlideIdExists(string fileName, int slideId){
         int totalSlides = getNumSlides(fileName);
         for( int i = 0; i < totalSlides; i++){
             int currentId = getSlideIdNumber(fileName, i+1);
-            if(currentId == slideId)
-                return true;
+			if (currentId == slideId) {
+				return true;
+			}
         }
         return false;
     }

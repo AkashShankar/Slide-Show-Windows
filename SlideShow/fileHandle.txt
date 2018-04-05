@@ -1,10 +1,9 @@
 ***SlideShowApp***
 ----------
 10
-Image x:728 y:146 w:200 h:200 path:batman.jpg
-Image x:502 y:143 w:200 h:200 path:cartoon.jpg
-Text x:651 y:426 fontsize:16 font:TNR_Bold.ttf Color:RED text:"Akash is coding"
-Text x:561 y:362 fontsize:30 font:TNR.ttf Color:PURPLE text:"Text with spaces working"
-Sound text:r1.mp3 x:685 y:484 path:r1.mp3
-----------
+Image x:368 y:352 w:200 h:200 path:batman.jpg
+Image x:364 y:122 w:200 h:200 path:cartoon.jpg
+Text x:664 y:194 fontsize:16 font:TNR_Bold.ttf Color:RED text:"Akash is coding"
+Text x:656 y:138 fontsize:30 font:TNR.ttf Color:PURPLE text:"Text with spaces working"
+Sound text:r1.mp3 x:672 y:254 path:r1.mp3
 ----------

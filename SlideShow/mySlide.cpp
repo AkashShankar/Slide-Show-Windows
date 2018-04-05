@@ -11,8 +11,10 @@ vector<int> sortedImagesIndex;
 void MySlide::loadSlide(int slideNumber, std::string fileName, SDL_Renderer *renderer) {
     if(isFileSlideShow(fileName)){
         int numSlides = getNumSlides(fileName);
-        if(numSlides < (slideNumber+1))
-            displaySlideNumOverflow(slideNumber);
+		if (numSlides < (slideNumber)) {
+			std::cout << "Error Error Error slide number overflow" << std::endl;
+			displaySlideNumOverflow(slideNumber);
+		}
         else {
 			this->fileName = fileName;
             this->renderer = renderer;
@@ -56,9 +58,6 @@ void MySlide::loadSlide(int slideNumber, std::string fileName, SDL_Renderer *ren
 }
 
 void MySlide::save(std::string fileName) {
-	std::cout << "numImages: " << images.size() << std::endl;
-	std::cout << "numSounds: " << sounds.size() << std::endl;
-	std::cout << "numTexts: " << texts.size() << std::endl;
 	for (unsigned long i = 0; i < images.size(); i++)
 		images[i].save(fileName);
 	for (unsigned long i = 0; i < sounds.size(); i++)
