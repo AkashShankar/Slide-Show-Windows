@@ -171,6 +171,7 @@
     <ClInclude Include="mySound.h" />
     <ClInclude Include="myText.h" />
     <ClInclude Include="screen.h" />
+    <ClInclude Include="SlideId.h" />
     <ClInclude Include="SlideShow.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="stdafx.h" />
@@ -191,6 +192,7 @@
     <ClCompile Include="myText.cpp" />
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SlideId.cpp" />
     <ClCompile Include="SlideShow.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="stdafx.cpp">

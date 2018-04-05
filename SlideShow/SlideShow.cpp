@@ -48,7 +48,8 @@ void SlideShow::renderSlide() {
 }
 
 void SlideShow::destroySlide() {
-	_slides[currentIndex].destroy();
+	for(unsigned long i = 0; i < _slides.size(); i++)
+		_slides[i].destroy();
 }
 
 MySlide SlideShow::getCurrentSlide() {

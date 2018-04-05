@@ -59,8 +59,7 @@ int Slide::getId(){
 }
 /* ----------- Slide Functions ------------- */
 
-
-/* ----------- AllSlides Functions ------------- */
+/*
 void AllSlides::addSlide(Slide s){
     this->slides.push_back(s);
 }
@@ -110,7 +109,7 @@ void AllSlides::displaySlideWithId(int id){
     else
         displaySlideIdError(id);
 }
-/* ----------- AllSlides Functions ------------- */
+*/
 
 void displayVector(vector<string> vec){
     for ( auto v: vec )

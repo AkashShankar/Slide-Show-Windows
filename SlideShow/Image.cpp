@@ -60,6 +60,20 @@ void Image::checkAndMove() { // Working Properly
     adjustDesRect();
 }
 
+void Image::checkToAction() {
+	int x, y;
+	if (event.type == SDL_MOUSEMOTION || event.type == SDL_MOUSEBUTTONUP
+		|| event.type == SDL_MOUSEBUTTONDOWN) {
+		if (event.type == SDL_MOUSEBUTTONDOWN) {
+			SDL_GetMouseState(&x, &y);
+			if (isMouseOn(x, y)) {
+				if (action != nullptr)
+					action();
+			}
+		}
+	}
+}
+
 bool Image::isMouseOn(int x, int y) {
     if(x > desRect.x && x < desRect.x + desRect.w
        && y > desRect.y && y < desRect.y + desRect.h)

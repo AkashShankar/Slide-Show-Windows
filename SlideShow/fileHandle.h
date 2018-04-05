@@ -19,6 +19,7 @@ public:
     int getId();
 };
 
+/*
 class AllSlides{
 private:
     std::vector<Slide> slides;
@@ -32,6 +33,7 @@ public:
     Slide getSlide(int index);
     
 };
+*/
 
 void write(std::string fileName, std::string text, bool app);
 int getNumLines(std::string fileName);

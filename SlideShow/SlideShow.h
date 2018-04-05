@@ -7,9 +7,11 @@ private:
 	std::vector<MySlide> _slides;
 	int currentSlideId{ -1 };
 	int currentIndex{ -1 };
-	std::string fileName;
+public:
+		std::string fileName;
 public:
 	inline void setFile(std::string fileName) { this->fileName = fileName; }
+	inline int getTotalSlides() { return _slides.size(); }
 	void setCurrentId(int id);
 	void processSlide();
 	void renderSlide();

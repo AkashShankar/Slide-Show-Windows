@@ -23,7 +23,8 @@ private:
     int height;
     int colorRange = 15;
 public:
-    bool clicked = false;
+	bool clicked{ false };
+	void(*action)(void) { nullptr };
 	SDL_Rect srcRect = { 0,0,0,0 };
 	SDL_Rect desRect = { 0,0,0,0 };
 public:
@@ -36,6 +37,7 @@ public:
     void setAlpha(int alpha);
     void changeAlpha_Image(bool increase);
     void checkAndMove();
+	void checkToAction();
     void adjustDesRect();
     void renderDes();
     void renderBoth();

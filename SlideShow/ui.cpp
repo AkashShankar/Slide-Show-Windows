@@ -27,6 +27,15 @@ Button newImageButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button newTextButton(buttonFontPath, buttonFontSize, paddingX, paddingX);
 Button newSoundButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button inputCloseButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
+
+// Image Buttons
+Image nextButton;
+Image backButton;
+Image playSlidesButton;
+
+int navigateButtonWidth = 55; // Keep it 55
+int navigateButtonHeight = 55;
+
 /* Global Variables */
 
 /* Declaration */
@@ -45,6 +54,14 @@ void setNewImageButton(int x, int y);
 void setNewTextButton(int x, int y);
 void setNewSoundButton(int x, int y);
 void setInputCloseButton(int x, int y);
+
+// Image Buttons
+void initNextButton(int x, int y);
+void initBackButton(int x, int y);
+void initPlaySlidesButton(int x, int y);
+
+void renderAllNavigationButtons();
+void processAllNavigationButtons();
 /* Declaration */
 
 void save(MySlide& _s);
@@ -72,6 +89,21 @@ void processSaveButton(MySlide& _s) {
  
 void initOthers() {
 	setActionsForAll();
+	initPlaySlidesButton(20, 700);
+	initNextButton(100, 700);
+	initBackButton(180, 700);
+}
+
+void renderAllNavigationButtons() {
+	nextButton.renderDes();
+	backButton.renderDes();
+	playSlidesButton.renderDes();
+}
+
+void processAllNavigationButtons() {
+	nextButton.checkToAction();
+	backButton.checkToAction();
+	playSlidesButton.checkToAction();
 }
 
 /* -------------UI Functions -------------*/
@@ -95,11 +127,12 @@ void processMainUI() {
         exitButton.process();
         openButton.process();
         closeButton.process();
-        //saveButton.process();
         newSlideButton.process();
         newImageButton.process();
         newTextButton.process();
         newSoundButton.process();
+		processAllNavigationButtons();
+		renderAllNavigationButtons();
     }
 }
 
@@ -114,6 +147,7 @@ void renderMainUI() {
     newImageButton.drawButton(mainScreen);
     newTextButton.drawButton(mainScreen);
     newSoundButton.drawButton(mainScreen);
+	renderAllNavigationButtons();
 }
 
 void renderInputUI() {
@@ -229,4 +263,24 @@ void setInputCloseButton(int x, int y) {
     inputCloseButton.setRenderer(inputScreen.getRenderer());
     inputCloseButton.setColors(defBCol, defHCol, defICol, defFCol);
     inputCloseButton.initText("Close", x, y);
+}
+
+// Image Button
+
+void initNextButton(int x, int y) {
+	nextButton.setRenderer(mainScreen.getRenderer());
+	nextButton.setPath("blackArrowRight.png");
+	nextButton.setDesRect(x, y, navigateButtonWidth, navigateButtonHeight);
+}
+
+void initBackButton(int x, int y) {
+	backButton.setRenderer(mainScreen.getRenderer());
+	backButton.setPath("blackArrowLeft.png");
+	backButton.setDesRect(x, y, navigateButtonWidth, navigateButtonHeight);
+}
+
+void initPlaySlidesButton(int x, int y) {
+	playSlidesButton.setRenderer(mainScreen.getRenderer());
+	playSlidesButton.setPath("play-sign.png");
+	playSlidesButton.setDesRect(x, y, navigateButtonWidth, navigateButtonHeight);
 }
