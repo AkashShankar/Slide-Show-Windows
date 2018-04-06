@@ -5,9 +5,10 @@
 #include "Image.h"
 #include "utilities.h"
 
-class MyImage: public Image
+class MyImage
 {
 private:
+	Image image;
     SDL_Rect rect;
     std::string path;
     Resource resType;

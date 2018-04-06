@@ -28,22 +28,22 @@ void MyImage::setInfo(std::vector<std::string> sl) {
 std::vector<std::string> MyImage::getUpdatedVector() {
 	std::string _t1 = "x:";
 
-	_t1 +=  to_string(desRect.x);
+	_t1 +=  to_string(image.desRect.x);
 	_vec.erase(_vec.begin() + 1);
 	_vec.insert(_vec.begin() + 1, _t1);
 	
 	_t1 = "y:";
-	_t1 += to_string(desRect.y);
+	_t1 += to_string(image.desRect.y);
 	_vec.erase(_vec.begin() + 2);
 	_vec.insert(_vec.begin() + 2, _t1);
 
 	_t1 = "w:";
-	_t1 += to_string(desRect.w);
+	_t1 += to_string(image.desRect.w);
 	_vec.erase(_vec.begin() + 3);
 	_vec.insert(_vec.begin() + 3, _t1);
 
 	_t1 = "h:";
-	_t1 += to_string(desRect.h);
+	_t1 += to_string(image.desRect.h);
 	_vec.erase(_vec.begin() + 4);
 	_vec.insert(_vec.begin() + 4, _t1);
 	
@@ -59,25 +59,25 @@ void MyImage::save(std::string fileName) {
 }
 
 void MyImage::setTexture(SDL_Renderer *renderer) {
-    setRenderer(renderer);
-    setPath(this->path);
-    setDesRect(rect.x, rect.y, rect.w, rect.h);
+	image.setRenderer(renderer);
+	image.setPath(this->path);
+	image.setDesRect(rect.x, rect.y, rect.w, rect.h);
 }
 
 void MyImage::changeAlpha_MyImage(bool increase){
-    changeAlpha_Image(increase);
+	image.changeAlpha_Image(increase);
 }
 
 bool MyImage::clicked() {
-    return Image::clicked;
+    return image.clicked;
 }
 
 void MyImage::destroy() {
-    Image::destroy();
+	image.destroy();
 }
 
 void MyImage::checkAndMove(){
-    Image::checkAndMove();
+    image.checkAndMove();
 }
 
 void MyImage::displayInfo() {
@@ -89,5 +89,5 @@ void MyImage::displayInfo() {
 }
 
 void MyImage::renderDes() {
-    Image::renderDes();
+	image.renderDes();
 }

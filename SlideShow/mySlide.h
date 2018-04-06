@@ -13,6 +13,7 @@ private:
     std::vector<MyText> texts;
     std::vector<MySound> sounds;
     std::vector<int> imagePriority;
+	std::vector<int> sortedImagesIndex;
 public:
 	std::string fileName;
 	int id = -1;
@@ -22,6 +23,7 @@ public:
 	inline MyImage getImage(int index) { return images[index]; }
 	inline MyText getText(int index) { return texts[index]; }
 	inline MySound getSound(int index) { return sounds[index]; }
+	void displayInfo();
 	void save(std::string fileName);
     void renderSlide();
     void setPriority();

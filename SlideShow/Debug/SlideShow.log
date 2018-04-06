@@ -1,0 +1,22 @@
+﻿  stdafx.cpp
+  button.cpp
+  fileHandle.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\filehandle.cpp(344): warning C4018: '<': signed/unsigned mismatch
+  handle.cpp
+  Image.cpp
+  initApi.cpp
+  myImage.cpp
+  mySlide.cpp
+  mySound.cpp
+  myText.cpp
+  screen.cpp
+  main.cpp
+  SlideId.cpp
+  SlideShow.cpp
+  Sound.cpp
+  text.cpp
+  ui.cpp
+  utilities.cpp
+  Generating Code...
+     Creating library C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Debug\SlideShow.lib and object C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Debug\SlideShow.exp
+  SlideShow.vcxproj -> C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Debug\SlideShow.exe

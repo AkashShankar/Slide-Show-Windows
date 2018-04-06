@@ -1,17 +1,32 @@
 ***SlideShowApp***
 ----------
 10
-Text x:477 y:182 fontsize:40 font:TNR_Bold.ttf Color:RED text:"Slide: 1"
+Image x:328 y:125 w:200 h:200 path:batman.jpg
+Image x:1005 y:150 w:200 h:200 path:vtuFees.jpeg
+Image x:359 y:514 w:200 h:200 path:cartoon.jpg
+Image x:794 y:361 w:150 h:150 path:dark.jpg
+Text x:1002 y:371 fontsize:25 font:TNR_Bold.ttf Color:OLIVE text:"My Text is Working"
+Text x:1050 y:429 fontsize:16 font:TNR_Bold.ttf Color:RED text:"Akash is coding"
+Text x:972 y:496 fontsize:30 font:TNR.ttf Color:PURPLE text:"Text with spaces working"
+Sound text:r1.mp3 x:673 y:480 path:r1.mp3
 ----------
 ----------
 7
-Text x:700 y:300 fontsize:40 font:TNR_Bold.ttf Color:RED text:"Slide: 2"
+Text x:1030 y:630 fontsize:30 font:TNR.ttf Color:PURPLE text:"Slide-2"
 ----------
 ----------
-13
-Text x:700 y:300 fontsize:40 font:TNR_Bold.ttf Color:RED text:"Slide: 3"
+9
+Text x:647 y:187 fontsize:30 font:TNR.ttf Color:PURPLE text:"Slide-3"
 ----------
 ----------
-15
-Text x:700 y:300 fontsize:40 font:TNR_Bold.ttf Color:RED text:"Slide: 4"
+3
+Text x:730 y:155 fontsize:30 font:TNR.ttf Color:PURPLE text:"Slide-4"
+----------
+----------
+12
+Text x:699 y:148 fontsize:30 font:TNR.ttf Color:PURPLE text:"Slide-5"
+----------
+----------
+16
+Text x:688 y:148 fontsize:30 font:TNR.ttf Color:PURPLE text:"Slide-6"
 ----------

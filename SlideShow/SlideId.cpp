@@ -13,7 +13,7 @@ void SlideId::loadAllIds()
 		int _tmpId = getSlideIdNumber(fileName, i + 1);
 		_ids.push_back(_tmpId);
 	}
-	std::cout << "All slide id's loaded. Total: " << numSlides << std::endl;
+	std::cout << "All slide id's loaded/refreshed. Total: " << numSlides << std::endl;
 }
 
 void SlideId::increment() {

@@ -4,19 +4,22 @@
 #include "ui.h"
 #include "screen.h"
 #include "button.h"
+#include "SlideShow.h"
 using namespace std;
 
 /* External Variables */
 extern Screen mainScreen;
 extern Screen inputScreen;
 extern bool isRunning;
+extern int getIndexWithId(int);
+extern SlideShow sl;
 /* External Variables */
 
 /* Global Variables */
 SDL_Rect upperBorder;
 SDL_Rect leftBorder;
-int paddingX = 6 , paddingY = 5 , buttonFontSize = 20;
-string buttonFontPath = "TNR_Bold.ttf";
+int paddingX = 6 , paddingY = 6 , buttonFontSize = 18;
+string buttonFontPath = "courbd.ttf";
 Color defHCol = BLUE , defBCol = BLACK , defICol = TEAL , defFCol = YELLOW;
 Button exitButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button openButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
@@ -27,6 +30,7 @@ Button newImageButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button newTextButton(buttonFontPath, buttonFontSize, paddingX, paddingX);
 Button newSoundButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button inputCloseButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
+Button refreshButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 
 // Image Buttons
 Image nextButton;
@@ -35,7 +39,6 @@ Image playSlidesButton;
 
 int navigateButtonWidth = 55; // Keep it 55
 int navigateButtonHeight = 55;
-
 /* Global Variables */
 
 /* Declaration */
@@ -54,6 +57,7 @@ void setNewImageButton(int x, int y);
 void setNewTextButton(int x, int y);
 void setNewSoundButton(int x, int y);
 void setInputCloseButton(int x, int y);
+void setRefreshButton(int x, int y);
 
 // Image Buttons
 void initNextButton(int x, int y);
@@ -64,19 +68,11 @@ void renderAllNavigationButtons();
 void processAllNavigationButtons();
 /* Declaration */
 
-void save(MySlide& _s);
 void exit();
-
 void initOthers();
 
 void setActionsForAll() {
-	saveButton.action2 = save;
 	exitButton.action1 = exit;
-}
-
-void save(MySlide& _s) {
-	_s.save(_s.fileName);
-	std::cout << "Slide with id: " << _s.id <<  " saved" <<  std::endl;
 }
 
 void exit() {
@@ -89,9 +85,9 @@ void processSaveButton(MySlide& _s) {
  
 void initOthers() {
 	setActionsForAll();
-	initPlaySlidesButton(20, 700);
-	initNextButton(100, 700);
-	initBackButton(180, 700);
+	initPlaySlidesButton(30, 740);
+	initNextButton(200, 740);
+	initBackButton(120, 740);
 }
 
 void renderAllNavigationButtons() {
@@ -116,9 +112,10 @@ void initUI(){
     setSaveButton(210, 20);
     setNewSlideButton(330, 20);
     setNewImageButton(470, 20);
-    setNewTextButton(630, 20);
-    setNewSoundButton(770, 20);
+    setNewTextButton(610, 20);
+    setNewSoundButton(750, 20);
     setInputCloseButton(30, 20);
+	setRefreshButton(890, 20);
 	initOthers();
 }
 
@@ -131,6 +128,7 @@ void processMainUI() {
         newImageButton.process();
         newTextButton.process();
         newSoundButton.process();
+		refreshButton.process();
 		processAllNavigationButtons();
 		renderAllNavigationButtons();
     }
@@ -147,6 +145,7 @@ void renderMainUI() {
     newImageButton.drawButton(mainScreen);
     newTextButton.drawButton(mainScreen);
     newSoundButton.drawButton(mainScreen);
+	refreshButton.drawButton(mainScreen);
 	renderAllNavigationButtons();
 }
 
@@ -168,6 +167,7 @@ void destroyUI() {
     newTextButton.destroy();
     newSoundButton.destroy();
     inputCloseButton.destroy();
+	refreshButton.destroy();
     cout << "All UI Destroyed" << endl;
 }
 /* -------------UI Functions -------------*/
@@ -263,6 +263,13 @@ void setInputCloseButton(int x, int y) {
     inputCloseButton.setRenderer(inputScreen.getRenderer());
     inputCloseButton.setColors(defBCol, defHCol, defICol, defFCol);
     inputCloseButton.initText("Close", x, y);
+}
+
+void setRefreshButton(int x, int y) {
+	refreshButton.initFont();
+	refreshButton.setRenderer(mainScreen.getRenderer());
+	refreshButton.setColors(defBCol, defHCol, defICol, defFCol);
+	refreshButton.initText("Refresh", x, y);
 }
 
 // Image Button

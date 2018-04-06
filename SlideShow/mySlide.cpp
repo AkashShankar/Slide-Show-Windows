@@ -6,7 +6,6 @@ using namespace std;
 
 extern SDL_Event event;
 extern const Uint8 *keyState;
-vector<int> sortedImagesIndex;
 
 void MySlide::loadSlide(int slideNumber, std::string fileName, SDL_Renderer *renderer) {
     if(isFileSlideShow(fileName)){
@@ -19,7 +18,6 @@ void MySlide::loadSlide(int slideNumber, std::string fileName, SDL_Renderer *ren
 			this->fileName = fileName;
             this->renderer = renderer;
             int id = getIdFromSlide(fileName, slideNumber);
-			cout << "Slide with id: " << id << " loaded" << endl;
             this->slide.setId(id);
 			this->id = id;
             Slide tmp;
@@ -55,6 +53,16 @@ void MySlide::loadSlide(int slideNumber, std::string fileName, SDL_Renderer *ren
     }
     else
         displayFileNotSlideShow(fileName);
+}
+
+void MySlide::displayInfo()
+{
+	int numImages = images.size();
+	int numSounds = sounds.size();
+	int numTexts = texts.size();
+	for (int i = 0; i < numImages; i++) {
+		images[i].displayInfo();
+	}
 }
 
 void MySlide::save(std::string fileName) {
@@ -111,9 +119,9 @@ void MySlide::update() {
 
 void MySlide::checkAndChangeAlpha(int index){
     if(keyState[SDL_SCANCODE_P])
-        images[index].changeAlpha_Image(true); // Increase alpha
+        images[index].changeAlpha_MyImage(true); // Increase alpha
     else if(keyState[SDL_SCANCODE_O])
-        images[index].changeAlpha_Image(false); // Decrease alpha
+        images[index].changeAlpha_MyImage(false); // Decrease alpha
 }
 
 void MySlide::setHighestPriorityToImageWithIndex(int index) {
@@ -158,7 +166,7 @@ vector<int> MySlide::getImageSorted() {
 
 void MySlide::renderSlide(){
     for(unsigned long i = 0; i < images.size(); i++) {
-        int index = sortedImagesIndex[i];
+		int index = sortedImagesIndex[i];
         images[index].renderDes();
     }
     for(unsigned long i = 0; i < texts.size(); i++) {
