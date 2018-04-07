@@ -108,14 +108,14 @@ void initUI(){
     initLeftBorder();
     setExitButton(1220, 20);
     setOpenButton(30, 20);
-    setCloseButton(120, 20);
-    setSaveButton(210, 20);
+    setCloseButton(110, 20);
+    setSaveButton(200, 20);
     setNewSlideButton(330, 20);
-    setNewImageButton(470, 20);
-    setNewTextButton(610, 20);
-    setNewSoundButton(750, 20);
+    setNewImageButton(420, 20);
+    setNewTextButton(510, 20);
+    setNewSoundButton(590, 20);
     setInputCloseButton(30, 20);
-	setRefreshButton(890, 20);
+	setRefreshButton(30, 65);
 	initOthers();
 }
 
@@ -234,28 +234,28 @@ void setNewSlideButton(int x, int y) {
     newSlideButton.initFont();
     newSlideButton.setRenderer(mainScreen.getRenderer());
     newSlideButton.setColors(defBCol, defHCol, defICol, defFCol);
-    newSlideButton.initText("New Slide", x, y);
+    newSlideButton.initText("Slide", x, y);
 }
 
 void setNewImageButton(int x, int y) {
     newImageButton.initFont();
     newImageButton.setRenderer(mainScreen.getRenderer());
     newImageButton.setColors(defBCol, defHCol, defICol, defFCol);
-    newImageButton.initText("New Image", x, y);
+    newImageButton.initText("Image", x, y);
 }
 
 void setNewTextButton(int x, int y) {
     newTextButton.initFont();
     newTextButton.setRenderer(mainScreen.getRenderer());
     newTextButton.setColors(defBCol, defHCol, defICol, defFCol);
-    newTextButton.initText("New Text", x, y);
+    newTextButton.initText("Text", x, y);
 }
 
 void setNewSoundButton(int x, int y) {
     newSoundButton.initFont();
     newSoundButton.setRenderer(mainScreen.getRenderer());
     newSoundButton.setColors(defBCol, defHCol, defICol, defFCol);
-    newSoundButton.initText("New Sound", x, y);
+    newSoundButton.initText("Sound", x, y);
 }
 
 void setInputCloseButton(int x, int y) {
