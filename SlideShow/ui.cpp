@@ -31,11 +31,16 @@ Button newTextButton(buttonFontPath, buttonFontSize, paddingX, paddingX);
 Button newSoundButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button inputCloseButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button refreshButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
+Button inputEnterButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 
 // Image Buttons
 Image nextButton;
 Image backButton;
 Image playSlidesButton;
+
+//Text
+Text EnterText;
+void initText();
 
 int navigateButtonWidth = 55; // Keep it 55
 int navigateButtonHeight = 55;
@@ -58,6 +63,7 @@ void setNewTextButton(int x, int y);
 void setNewSoundButton(int x, int y);
 void setInputCloseButton(int x, int y);
 void setRefreshButton(int x, int y);
+void setInputEnterButton(int x, int y);
 
 // Image Buttons
 void initNextButton(int x, int y);
@@ -69,10 +75,22 @@ void processAllNavigationButtons();
 /* Declaration */
 
 void exit();
+void hideInputWindow();
+void testFunction();
 void initOthers();
 
 void setActionsForAll() {
 	exitButton.action1 = exit;
+	inputCloseButton.action1 = hideInputWindow;
+	newSlideButton.action1 = testFunction;
+}
+
+void testFunction() {
+	SDL_ShowWindow(inputScreen.getWindow());
+}
+
+void hideInputWindow() {
+	SDL_HideWindow(inputScreen.getWindow());
 }
 
 void exit() {
@@ -114,9 +132,13 @@ void initUI(){
     setNewImageButton(420, 20);
     setNewTextButton(510, 20);
     setNewSoundButton(590, 20);
-    setInputCloseButton(30, 20);
 	setRefreshButton(30, 65);
+
+    setInputCloseButton(190, 65);
+	setInputEnterButton(130, 65);
 	initOthers();
+
+	initText();
 }
 
 void processMainUI() {
@@ -151,10 +173,13 @@ void renderMainUI() {
 
 void renderInputUI() {
     inputCloseButton.drawButton(inputScreen);
+	inputEnterButton.drawButton(inputScreen);
+	EnterText.render();
 }
 
 void processInputUI() {
     inputCloseButton.process();
+	inputEnterButton.process();
 }
 
 void destroyUI() {
@@ -168,6 +193,7 @@ void destroyUI() {
     newSoundButton.destroy();
     inputCloseButton.destroy();
 	refreshButton.destroy();
+	inputEnterButton.destroy();
     cout << "All UI Destroyed" << endl;
 }
 /* -------------UI Functions -------------*/
@@ -290,4 +316,21 @@ void initPlaySlidesButton(int x, int y) {
 	playSlidesButton.setRenderer(mainScreen.getRenderer());
 	playSlidesButton.setPath("play-sign.png");
 	playSlidesButton.setDesRect(x, y, navigateButtonWidth, navigateButtonHeight);
+}
+
+void setInputEnterButton(int x, int y) {
+	inputEnterButton.initFont();
+	inputEnterButton.setRenderer(inputScreen.getRenderer());
+	inputEnterButton.setColors(defBCol, defHCol, defICol, defFCol);
+	inputEnterButton.initText("Ok", x, y);
+}
+
+void initText() {
+	EnterText.setPath("TNR.ttf");
+	EnterText.setFontSize(22);
+	EnterText.setText("Enter: ");
+	EnterText.setCol(BLACK);
+	EnterText.setPos(10, 11);
+	EnterText.setRenderer(inputScreen.getRenderer());
+	EnterText.init();
 }

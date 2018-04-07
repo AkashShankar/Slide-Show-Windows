@@ -5,7 +5,7 @@
 
 /* global Screen variables */
 Screen mainScreen("SlideShow", 50, 50, mainScreenWidth, mainScreenHeight);
-Screen inputScreen("Alert", 200, 200, inputScreenWidth, inputScreenHeight);
+Screen inputScreen("Alert", 300, 300, inputScreenWidth, inputScreenHeight);
 /* global Screen variables */
 
 /* other Functions */

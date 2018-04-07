@@ -7,7 +7,7 @@ extern Screen inputScreen;
 
 TextInput::TextInput(std::string path, Color _rectColor) {
 	_txt.setPath(path);
-	_txt.setFontSize(20);
+	_txt.setFontSize(22);
 	_txt.setText("");
 	_txt.setCol(BLACK);
 	setColor(rectColor, _rectColor);
@@ -52,5 +52,5 @@ void TextInput::textLoop() {
 		_txt.setText(text);
 		_txt.reinit();
 	}
-	inputScreen.drawRect(x_pos, y_pos, 300, 20, rectColor);
+	inputScreen.drawRect(x_pos - 10, y_pos - 3 , 310, 35, rectColor);
 }

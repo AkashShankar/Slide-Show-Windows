@@ -3,7 +3,7 @@
 #include <string>
 
 const int mainScreenWidth = 1300 , mainScreenHeight = 810;
-const int inputScreenWidth = 500, inputScreenHeight = 500;
+const int inputScreenWidth = 390, inputScreenHeight = 110;
 
 class Screen {
 private:
