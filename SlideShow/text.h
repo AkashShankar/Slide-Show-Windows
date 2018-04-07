@@ -31,5 +31,6 @@ public:
     inline SDL_Color getColor() { return fontColor; }
     void render();
     void init();
+	void reinit();
     void destroy();
 };

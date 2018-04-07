@@ -36,9 +36,24 @@ void Text::init() {
         return;
     }
     SDL_Surface *tmpSurface = TTF_RenderText_Solid(font, text.c_str(), fontColor);
+	if (!tmpSurface)
+		return;
     texture = SDL_CreateTextureFromSurface(renderer, tmpSurface);
+	if (!texture) {
+		std::cout << "SDL: " << SDL_GetError() << std::endl;
+		return;
+	}
     SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
     SDL_FreeSurface(tmpSurface);
+}
+
+void Text::reinit() {
+	if (texture != nullptr)
+		SDL_DestroyTexture(texture);
+	SDL_Surface *tmpSurface = TTF_RenderText_Solid(font, text.c_str(), fontColor);
+	texture = SDL_CreateTextureFromSurface(renderer, tmpSurface);
+	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
+	SDL_FreeSurface(tmpSurface);
 }
 
 void Text::render() {
