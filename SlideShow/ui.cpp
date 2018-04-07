@@ -11,8 +11,6 @@ using namespace std;
 extern Screen mainScreen;
 extern Screen inputScreen;
 extern bool isRunning;
-extern int getIndexWithId(int);
-extern SlideShow sl;
 /* External Variables */
 
 /* Global Variables */

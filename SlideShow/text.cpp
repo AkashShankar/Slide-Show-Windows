@@ -6,6 +6,7 @@ using namespace std;
 extern SDL_Event event;
 extern SDL_Rect upperBorder;
 extern SDL_Rect leftBorder;
+extern const Uint8* keyState;
 
 Text::Text(std::string fontPath, int fontSize) {
     this->fontPath = fontPath;
@@ -48,8 +49,11 @@ void Text::init() {
 }
 
 void Text::reinit() {
+	if (font != nullptr)
+		TTF_CloseFont(font);
 	if (texture != nullptr)
 		SDL_DestroyTexture(texture);
+	font = TTF_OpenFont(fontPath.c_str(), fontSize);
 	SDL_Surface *tmpSurface = TTF_RenderText_Solid(font, text.c_str(), fontColor);
 	texture = SDL_CreateTextureFromSurface(renderer, tmpSurface);
 	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
@@ -64,8 +68,8 @@ void Text::checkAndMove() {
     int x, y;
     if(event.type == SDL_MOUSEMOTION || event.type == SDL_MOUSEBUTTONUP
        || event.type == SDL_MOUSEBUTTONDOWN) {
+		SDL_GetMouseState(&x, &y);
         if(event.type == SDL_MOUSEBUTTONDOWN){
-            SDL_GetMouseState(&x, &y);
             if(isMouseOn(x, y)) {
                 clicked = true;
             }
@@ -73,13 +77,22 @@ void Text::checkAndMove() {
         if(event.type == SDL_MOUSEBUTTONUP) {
             clicked = false;
         }
-        if(clicked) {
-            SDL_GetMouseState(&x, &y);
-            
-            rect.x = x;
-            rect.y = y;
-        }
+		if (clicked) {
+			if (!keyState[SDL_SCANCODE_A] && !keyState[SDL_SCANCODE_D]) {
+				rect.x = x;
+				rect.y = y;
+			}
+			else if (keyState[SDL_SCANCODE_A]) {
+				fontSize -= 1;
+				reinit();
+			}
+			else {
+				fontSize += 1;
+				reinit();
+			}
+		}
     }
+	
     adjustDesRect();
 }
 

@@ -6,6 +6,7 @@ using namespace std;
 extern SDL_Rect upperBorder;
 extern SDL_Rect leftBorder;
 extern SDL_Event event;
+extern const Uint8 *keyState;
 
 Image::Image(){
     pixelFormat = SDL_PIXELFORMAT_RGBA8888;
@@ -42,8 +43,8 @@ void Image::checkAndMove() { // Working Properly
     int x, y;
     if(event.type == SDL_MOUSEMOTION || event.type == SDL_MOUSEBUTTONUP
        || event.type == SDL_MOUSEBUTTONDOWN) {
+		SDL_GetMouseState(&x, &y);
         if(event.type == SDL_MOUSEBUTTONDOWN){
-            SDL_GetMouseState(&x, &y);
             if(isMouseOn(x, y)) {
                 clicked = true;
             }
@@ -52,9 +53,14 @@ void Image::checkAndMove() { // Working Properly
             clicked = false;
         }
         if(clicked) {
-            SDL_GetMouseState(&x, &y);
-            desRect.x = x;
-            desRect.y = y;
+			if (!keyState[SDL_SCANCODE_R]) {
+				desRect.x = x;
+				desRect.y = y;
+			}
+			else {
+				desRect.w = x - desRect.x;
+				desRect.h = y - desRect.w;
+			}
         }
     }
     adjustDesRect();

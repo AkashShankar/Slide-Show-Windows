@@ -11,8 +11,8 @@ private:
     SDL_Color fontColor;
     std::string text;
     std::string fontPath;
-    int fontSize;
 public:
+	int fontSize;
     SDL_Renderer *renderer;
     bool clicked = false;
 	SDL_Rect rect;

@@ -1,8 +1,14 @@
-﻿  main.cpp
+﻿  SlideShow.cpp
+  TextInput.cpp
+  main.cpp
+  mySlide.cpp
+  myText.cpp
+  text.cpp
+  ui.cpp
      Creating library C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Release\SlideShow.lib and object C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Release\SlideShow.exp
   Generating code
-  1 of 1137 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  2 of 1137 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    7 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SlideShow.vcxproj -> C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Release\SlideShow.exe

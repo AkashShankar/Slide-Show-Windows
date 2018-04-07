@@ -79,6 +79,11 @@ std::vector<std::string> MyText::getUpdatedVector() {
 	tmp += std::to_string(text.rect.y);
 	_vec.erase(_vec.begin() + 2);
 	_vec.insert(_vec.begin() + 2, tmp);
+
+	tmp = "fontsize:";
+	tmp += std::to_string(text.fontSize);
+	_vec.erase(_vec.begin() + 3);
+	_vec.insert(_vec.begin() + 3, tmp);
 	
 	return _vec;
 }
