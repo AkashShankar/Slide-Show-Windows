@@ -1,6 +1,9 @@
 ***SlideShowApp***
 ----------
 10
+Image x:200 y:300 w:200 h:200 path:batman.jpg
+Text x:200 y:300 fontsize:20 font:TNR.ttf Color:PURPLE text:"test string"
+Text x:310 y:300 fontsize:20 font:TNR.ttf Color:BLACK text:"akash bujju"
 Image x:758 y:431 w:289 h:230 path:nature.jpg
 Image x:369 y:372 w:209 h:211 path:batman.jpg
 Image x:357 y:127 w:227 h:207 path:cartoon.jpg

@@ -129,6 +129,5 @@ bool Text::ifTextExists(std::string _fName)
 	if (!tmpFont)
 		exists = false;
 	TTF_CloseFont(tmpFont);
-	std::cout << "Exists: " << exists << std::endl;
 	return exists;
 }
