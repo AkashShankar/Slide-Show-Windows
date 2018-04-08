@@ -4,7 +4,6 @@
 #include "ui.h"
 #include "screen.h"
 #include "button.h"
-#include "SlideShow.h"
 using namespace std;
 
 /* External Variables */
@@ -16,6 +15,7 @@ extern bool isRunning;
 /* Global Variables */
 SDL_Rect upperBorder;
 SDL_Rect leftBorder;
+SDL_Rect bottomBorder;
 int paddingX = 6 , paddingY = 6 , buttonFontSize = 18;
 string buttonFontPath = "courbd.ttf";
 Color defHCol = BLUE , defBCol = BLACK , defICol = TEAL , defFCol = YELLOW;
@@ -51,6 +51,9 @@ void initUpperBorder();
 void setLeftBorder(int x, int y, int w, int h);
 void drawLeftBorder(Color c);
 void initLeftBorder();
+void initBottomBorder();
+void drawBottomBorder(Color c);
+void setBottomBorder(int x, int y, int w, int h);
 void setExitButton(int x, int y);
 void setOpenButton(int x, int y);
 void setCloseButton(int x, int y);
@@ -122,6 +125,7 @@ void processAllNavigationButtons() {
 void initUI(){
     initUpperBorder();
     initLeftBorder();
+	initBottomBorder();
     setExitButton(1220, 20);
     setOpenButton(30, 20);
     setCloseButton(110, 20);
@@ -132,8 +136,8 @@ void initUI(){
     setNewSoundButton(590, 20);
 	setRefreshButton(30, 65);
 
-    setInputCloseButton(190, 65);
-	setInputEnterButton(130, 65);
+    setInputCloseButton(340, 65);
+	setInputEnterButton(280, 65);
 	initOthers();
 
 	initText();
@@ -157,6 +161,7 @@ void processMainUI() {
 void renderMainUI() {
     drawUpperBorder(DGREEN);
     drawLeftBorder(DGREEN);
+	drawBottomBorder(DGREEN);
     exitButton.drawButton(mainScreen);
     openButton.drawButton(mainScreen);
     closeButton.drawButton(mainScreen);
@@ -195,6 +200,21 @@ void destroyUI() {
     cout << "All UI Destroyed" << endl;
 }
 /* -------------UI Functions -------------*/
+
+void initBottomBorder() {
+	setBottomBorder(0, 730, 300, 3);
+	drawLeftBorder(BLACK);
+}
+
+void drawBottomBorder(Color c) {
+	SDL_Color tmp;
+	setColor(tmp, c);
+	mainScreen.drawRect(bottomBorder.x, bottomBorder.y, bottomBorder.w, bottomBorder.h, tmp);
+}
+
+void setBottomBorder(int x, int y, int w, int h) {
+	bottomBorder = { x, y, w, h };
+}
 
 void setUpperBorder(int x, int y, int w, int h){
     upperBorder = {x, y, w, h};

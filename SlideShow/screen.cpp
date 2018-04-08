@@ -64,6 +64,16 @@ void Screen::clearScreen() {
     memset(screenBuffer, 220, sizeof(Uint32) * width * height);
 }
 
+void Screen::hide()
+{
+	SDL_HideWindow(this->window);
+}
+
+void Screen::show()
+{
+	SDL_ShowWindow(this->window);
+}
+
 SDL_Renderer* Screen::getRenderer() {
     return renderer;
 }

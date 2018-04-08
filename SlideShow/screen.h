@@ -3,7 +3,7 @@
 #include <string>
 
 const int mainScreenWidth = 1300 , mainScreenHeight = 810;
-const int inputScreenWidth = 390, inputScreenHeight = 110;
+const int inputScreenWidth = 650, inputScreenHeight = 110;
 
 class Screen {
 private:
@@ -33,6 +33,8 @@ public:
     void render(void(*renderFunction)(void));
     void destroy();
     void clearScreen();
+	void hide();
+	void show();
 public:
     int width;
     int height;
