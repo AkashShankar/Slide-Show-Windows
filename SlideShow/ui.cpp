@@ -4,12 +4,15 @@
 #include "ui.h"
 #include "screen.h"
 #include "button.h"
+#include "TextInput.h"
 using namespace std;
 
 /* External Variables */
 extern Screen mainScreen;
 extern Screen inputScreen;
 extern bool isRunning;
+extern TextInput txtInput;
+extern void processInput();
 /* External Variables */
 
 /* Global Variables */
@@ -77,25 +80,53 @@ void processAllNavigationButtons();
 
 void exit();
 void hideInputWindow();
-void testFunction();
+void newImageFunction(MySlide& _s);
+void newTextFunction(MySlide& _s);
+void okButton();
 void initOthers();
 
 void setActionsForAll() {
 	exitButton.action1 = exit;
 	inputCloseButton.action1 = hideInputWindow;
-	newSlideButton.action1 = testFunction;
+	newImageButton.action2 = newImageFunction;
+	newTextButton.action2 = newTextFunction;
+	inputEnterButton.action1 = okButton;
 }
 
-void testFunction() {
-	SDL_ShowWindow(inputScreen.getWindow());
+void newImageFunction(MySlide& _s) {
+	txtInput.erase();
+	txtInput.set("Image ");
+	txtInput.start();
+	inputScreen.show();
+}
+
+void newTextFunction(MySlide& _s) {
+	txtInput.erase();
+	txtInput.set("Text ");
+	txtInput.start();
+	inputScreen.show();
+}
+
+void okButton() {
+	processInput();
 }
 
 void hideInputWindow() {
+	txtInput.stop();
+	txtInput.erase();
 	SDL_HideWindow(inputScreen.getWindow());
 }
 
 void exit() {
 	isRunning = false;
+}
+
+void processNewTextButton(MySlide& _s) {
+	newTextButton.checkAndTakeAction(_s);
+}
+
+void processNewImageButton(MySlide& _s) {
+	newImageButton.checkAndTakeAction(_s);
 }
 
 void processSaveButton(MySlide& _s) {

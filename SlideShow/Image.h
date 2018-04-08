@@ -43,4 +43,5 @@ public:
     void renderBoth();
     void renderNone();
     void destroy();
+	static bool ifImageExists(std::string _fName);
 };

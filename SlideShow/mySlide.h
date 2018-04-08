@@ -19,10 +19,6 @@ public:
 	int id = -1;
 public:
     void loadSlide(int slideNumber , std::string fileName, SDL_Renderer *renderer);
-    inline Slide getSlide() { return this->slide; };
-	inline MyImage getImage(int index) { return images[index]; }
-	inline MyText getText(int index) { return texts[index]; }
-	inline MySound getSound(int index) { return sounds[index]; }
 	void displayInfo();
 	void save(std::string fileName);
     void renderSlide();
@@ -34,4 +30,5 @@ public:
     void update();
     void process();
     void destroy();
+	void insert(std::string _txt);
 };

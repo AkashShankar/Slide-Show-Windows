@@ -109,6 +109,16 @@ void Image::destroy() {
         SDL_DestroyTexture(texture);
 }
 
+bool Image::ifImageExists(std::string _fName) {
+	SDL_Surface *tmp = IMG_Load(_fName.c_str());
+	bool exists = true;
+	if (!tmp) {
+		exists = false;
+	}
+	SDL_FreeSurface(tmp);
+	return exists;
+}
+
 void Image::renderDes() {
     SDL_RenderCopy(renderer, texture, NULL, &desRect);
     SDL_SetTextureAlphaMod(texture, alpha);

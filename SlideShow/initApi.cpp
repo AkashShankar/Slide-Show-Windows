@@ -42,6 +42,7 @@ bool initAllApi(){
     if(!initTTF())
         return false;
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+	std::cout << "------------------" << std::endl;
     return true;
 }
 
@@ -50,6 +51,5 @@ void closeAllApi(){
     IMG_Quit();
     TTF_Quit();
     std::cout << "All api's closed" << std::endl;
-    
 }
 

@@ -1,14 +1,16 @@
 ***SlideShowApp***
 ----------
 10
-Image x:454 y:357 w:250 h:208 path:batman.jpg
+Image x:758 y:431 w:289 h:230 path:nature.jpg
+Image x:369 y:372 w:209 h:211 path:batman.jpg
 Image x:357 y:127 w:227 h:207 path:cartoon.jpg
 Text x:868 y:172 fontsize:51 font:TNR.ttf Color:PURPLE text:"Akash is Coding"
-Text x:786 y:274 fontsize:44 font:TNR.ttf Color:PURPLE text:"text with spaces"
+Text x:763 y:316 fontsize:44 font:TNR.ttf Color:PURPLE text:"text with spaces"
 Sound text:Doom.mp3 x:651 y:148 path:r1.mp3
 ----------
 ----------
 7
+Image x:876 y:196 w:200 h:200 path:leaf.jpg
 Text x:614 y:193 fontsize:30 font:TNR.ttf Color:PURPLE text:"Slide-2"
 ----------
 ----------

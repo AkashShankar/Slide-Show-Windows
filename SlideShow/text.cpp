@@ -120,3 +120,15 @@ void Text::destroy() {
     if(renderer != nullptr)
         SDL_DestroyRenderer(renderer);
 }
+
+bool Text::ifTextExists(std::string _fName)
+{
+	bool exists = true;
+	TTF_Font *tmpFont = nullptr;
+	tmpFont = TTF_OpenFont(_fName.c_str(), 10);
+	if (!tmpFont)
+		exists = false;
+	TTF_CloseFont(tmpFont);
+	std::cout << "Exists: " << exists << std::endl;
+	return exists;
+}

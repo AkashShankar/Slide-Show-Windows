@@ -33,4 +33,5 @@ public:
     void init();
 	void reinit();
     void destroy();
+	static bool ifTextExists(std::string _fName);
 };

@@ -19,22 +19,6 @@ public:
     int getId();
 };
 
-/*
-class AllSlides{
-private:
-    std::vector<Slide> slides;
-    std::string fileName;
-public:
-    void addSlide(Slide s);
-    void setFile(std::string fileName);
-    void loadSlideShow();
-    void displaySlides();
-    void displaySlideWithId(int id);
-    Slide getSlide(int index);
-    
-};
-*/
-
 void write(std::string fileName, std::string text, bool app);
 int getNumLines(std::string fileName);
 std::string getLine(std::string fileName, int line);
@@ -55,6 +39,7 @@ std::vector<std::string> split(std::string str);
 void displaySlideInfo(Slide s);
 int getLineWhichContains(std::string fileName, std::string text);
 void replaceLine(std::string  fileName, std::string text, int line);
+void split(std::string str, std::vector<std::string>& _t);
 
 /* ----------------- Needed Functions --------------------- */
 bool isFileSlideShow(std::string fileName);

@@ -185,3 +185,7 @@ void MySlide::destroy(){
     for(unsigned long i = 0; i < sounds.size(); i++)
         sounds[i].destroy(); 
 }
+
+void MySlide::insert(std::string _txt) {
+	putToSlideWithId(fileName, id, _txt);
+}

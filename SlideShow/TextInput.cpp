@@ -49,8 +49,8 @@ void TextInput::textLoop() {
 			stop();
 		else if (event.type == SDL_TEXTINPUT)
 			text += event.text.text;
-		_txt.setText(text);
-		_txt.reinit();
 	}
+	_txt.setText(text);
+	_txt.reinit();
 	inputScreen.drawRect(x_pos - 10, y_pos - 3 , 570, 35, rectColor);
 }

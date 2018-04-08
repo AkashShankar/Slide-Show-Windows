@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <sys/stat.h>
 #include "fileHandle.h"
 using namespace std;
 
@@ -58,58 +59,6 @@ int Slide::getId(){
     return this->id;
 }
 /* ----------- Slide Functions ------------- */
-
-/*
-void AllSlides::addSlide(Slide s){
-    this->slides.push_back(s);
-}
-
-void AllSlides::setFile(string fileName){
-    this->fileName = fileName;
-}
-
-void AllSlides::loadSlideShow(){
-    if(isFileSlideShow(this->fileName)){
-        int numSlides = getNumSlides(this->fileName);
-        for(int i=0;i<numSlides;i++){
-            Slide tmp;
-            int tmpId = getIdFromSlide(this->fileName, i+1);
-            loadSlideWithId(tmp, fileName, tmpId);
-            tmp.setId(tmpId);
-            addSlide(tmp);
-        }
-    }
-    else
-        displayFileNotSlideShow(this->fileName);
-}
-
-void AllSlides::displaySlides(){
-    unsigned long size = slides.size();
-    for(unsigned long i=0;i<size; i++){
-        cout << "SlideId : " << slides[i].getId() << endl;
-        cout << "-------------------" << endl;
-        displaySlideInfo(slides[i]);
-        cout << "-------------------" << endl << endl;
-    }
-}
-
-Slide AllSlides::getSlide(int index){
-    return this->slides[index];
-}
-
-void AllSlides::displaySlideWithId(int id){
-    if(ifSlideIdExists(this->fileName, id)){
-        for(unsigned long i=0;i<slides.size();i++){
-            if(id == slides[i].getId()){
-                displaySlideInfo(slides[i]);
-                break;
-            }
-        }
-    }
-    else
-        displaySlideIdError(id);
-}
-*/
 
 void displayVector(vector<string> vec){
     for ( auto v: vec )
@@ -575,4 +524,14 @@ int getSlideLineNumberWithId(string fileName, int id, bool start){
 
 void displaySlideIdError(int id){
     cout << "Slide with id : " << id << " does not exist" << endl;
+}
+
+void split(string str, std::vector<string>& _t) {
+	splitString(str, _t, '\"');
+	vector<string> finalStr;
+	splitString(_t[0], finalStr, ' ');
+	if (find(str, '\"'))
+	{
+		finalStr.push_back(_t[1]);
+	}
 }

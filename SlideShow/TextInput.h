@@ -13,6 +13,9 @@ private:
 	SDL_Color rectColor;
 public:
 	TextInput(std::string path, Color _rectColor);
+	inline void erase() { text = ""; }
+	inline void set(std::string _t) { text = _t; }
+	inline std::string get() { return text; }
 	void init();
 	void setPos(int x, int y);
 	void start();

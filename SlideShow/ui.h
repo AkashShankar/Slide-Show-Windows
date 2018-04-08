@@ -10,5 +10,7 @@ void processInputUI();
 void destroyUI();
 void setActionsForAll();
 void processSaveButton(MySlide&);
+void processNewImageButton(MySlide&);
+void processNewTextButton(MySlide&);
 
 
