@@ -22,3 +22,13 @@ void Sound::destroy() {
     if(music != nullptr)
         Mix_FreeMusic(music);
 }
+
+bool Sound::ifSoundExists(std::string _fName) {
+	Mix_Music *tmpMusic = nullptr;
+	tmpMusic = Mix_LoadMUS(_fName.c_str());
+	bool exists = true;
+	if (!tmpMusic)
+		exists = false;
+	Mix_FreeMusic(tmpMusic);
+	return exists;
+}

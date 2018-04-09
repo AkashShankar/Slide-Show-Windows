@@ -1,15 +1,13 @@
 ***SlideShowApp***
 ----------
 10
-Image x:200 y:300 w:200 h:200 path:batman.jpg
-Text x:200 y:300 fontsize:20 font:TNR.ttf Color:PURPLE text:"test string"
-Text x:310 y:300 fontsize:20 font:TNR.ttf Color:BLACK text:"akash bujju"
-Image x:758 y:431 w:289 h:230 path:nature.jpg
-Image x:369 y:372 w:209 h:211 path:batman.jpg
-Image x:357 y:127 w:227 h:207 path:cartoon.jpg
-Text x:868 y:172 fontsize:51 font:TNR.ttf Color:PURPLE text:"Akash is Coding"
-Text x:763 y:316 fontsize:44 font:TNR.ttf Color:PURPLE text:"text with spaces"
-Sound text:Doom.mp3 x:651 y:148 path:r1.mp3
+Sound text:softMusic x:400 y:400 path:piano.mp3
+Image x:368 y:319 w:159 h:172 path:batman.jpg
+Image x:372 y:516 w:176 h:156 path:nature.jpg
+Image x:366 y:158 w:147 h:142 path:cartoon.jpg
+Text x:598 y:217 fontsize:29 font:TNR.ttf Color:PURPLE text:"Akash is Coding"
+Text x:598 y:269 fontsize:36 font:TNR.ttf Color:PURPLE text:"text with spaces"
+Sound text:Doom.mp3 x:602 y:152 path:r1.mp3
 ----------
 ----------
 7

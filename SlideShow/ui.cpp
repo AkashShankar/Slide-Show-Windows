@@ -82,6 +82,7 @@ void exit();
 void hideInputWindow();
 void newImageFunction(MySlide& _s);
 void newTextFunction(MySlide& _s);
+void newSoundFunction(MySlide& _s);
 void okButton();
 void initOthers();
 
@@ -90,6 +91,7 @@ void setActionsForAll() {
 	inputCloseButton.action1 = hideInputWindow;
 	newImageButton.action2 = newImageFunction;
 	newTextButton.action2 = newTextFunction;
+	newSoundButton.action2 = newSoundFunction;
 	inputEnterButton.action1 = okButton;
 }
 
@@ -103,6 +105,13 @@ void newImageFunction(MySlide& _s) {
 void newTextFunction(MySlide& _s) {
 	txtInput.erase();
 	txtInput.set("Text ");
+	txtInput.start();
+	inputScreen.show();
+}
+
+void newSoundFunction(MySlide& _s) {
+	txtInput.erase();
+	txtInput.set("Sound ");
 	txtInput.start();
 	inputScreen.show();
 }
@@ -127,6 +136,10 @@ void processNewTextButton(MySlide& _s) {
 
 void processNewImageButton(MySlide& _s) {
 	newImageButton.checkAndTakeAction(_s);
+}
+
+void processNewSoundButton(MySlide& _s) {
+	newSoundButton.checkAndTakeAction(_s);
 }
 
 void processSaveButton(MySlide& _s) {

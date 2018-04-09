@@ -12,5 +12,6 @@ void setActionsForAll();
 void processSaveButton(MySlide&);
 void processNewImageButton(MySlide&);
 void processNewTextButton(MySlide&);
+void processNewSoundButton(MySlide&);
 
 

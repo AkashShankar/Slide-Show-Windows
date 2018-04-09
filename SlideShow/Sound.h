@@ -14,4 +14,5 @@ public:
 	void setPath(std::string path);
 	void init();
 	void destroy();
+	static bool ifSoundExists(std::string _fName);
 };
