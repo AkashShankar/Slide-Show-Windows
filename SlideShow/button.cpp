@@ -97,7 +97,6 @@ void Button::render(){
 
 void Button::checkAndTakeAction(){
     int x  = 0, y = 0;
-    //clickedToAction = false; // Do not uncomment this
     if(event.type == SDL_MOUSEMOTION || event.type == SDL_MOUSEBUTTONDOWN
        || event.type == SDL_MOUSEBUTTONUP ){
         SDL_GetMouseState(&x, &y);
@@ -125,7 +124,6 @@ void Button::checkAndTakeAction(){
 
 void Button::checkAndTakeAction(MySlide& _s) {
 	int x = 0, y = 0;
-	//clickedToAction = false; // Do not uncomment this
 	if (event.type == SDL_MOUSEMOTION || event.type == SDL_MOUSEBUTTONDOWN
 		|| event.type == SDL_MOUSEBUTTONUP) {
 		SDL_GetMouseState(&x, &y);
@@ -194,11 +192,11 @@ void Button::drawButton(Screen sc){
 }
 
 void Button::destroy(){
-    if(renderer != nullptr)
-        SDL_DestroyRenderer(renderer);
     if(texture != nullptr)
         SDL_DestroyTexture(texture);
-    if(font != nullptr)
+    if(font != nullptr) 
         TTF_CloseFont(font);
+	texture = nullptr;
+	font = nullptr;
 }
 

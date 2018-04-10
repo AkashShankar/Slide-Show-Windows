@@ -5,6 +5,8 @@
 #include "screen.h"
 #include "button.h"
 #include "TextInput.h"
+#include "SlideShow.h"
+#include "SlideId.h"
 using namespace std;
 
 /* External Variables */
@@ -13,12 +15,15 @@ extern Screen inputScreen;
 extern bool isRunning;
 extern TextInput txtInput;
 extern void processInput();
+extern SlideShow sl;
+extern SlideId slideId;
 /* External Variables */
 
 /* Global Variables */
 SDL_Rect upperBorder;
 SDL_Rect leftBorder;
 SDL_Rect bottomBorder;
+SDL_Rect scrollBarBorder;
 int paddingX = 6 , paddingY = 6 , buttonFontSize = 18;
 string buttonFontPath = "courbd.ttf";
 Color defHCol = BLUE , defBCol = BLACK , defICol = TEAL , defFCol = YELLOW;
@@ -57,6 +62,9 @@ void initLeftBorder();
 void initBottomBorder();
 void drawBottomBorder(Color c);
 void setBottomBorder(int x, int y, int w, int h);
+void setScrollBarBorder(int x, int y, int w, int h);
+void drawScrollBarBorder(Color c);
+void initScrollBarBorder();
 void setExitButton(int x, int y);
 void setOpenButton(int x, int y);
 void setCloseButton(int x, int y);
@@ -83,6 +91,9 @@ void hideInputWindow();
 void newImageFunction(MySlide& _s);
 void newTextFunction(MySlide& _s);
 void newSoundFunction(MySlide& _s);
+void newSlideFunction();
+void openButtonFunction();
+void closeButtonFunction();
 void okButton();
 void initOthers();
 
@@ -92,12 +103,29 @@ void setActionsForAll() {
 	newImageButton.action2 = newImageFunction;
 	newTextButton.action2 = newTextFunction;
 	newSoundButton.action2 = newSoundFunction;
+	newSlideButton.action1 = newSlideFunction;
+	openButton.action1 = openButtonFunction;
+	closeButton.action1 = closeButtonFunction;
 	inputEnterButton.action1 = okButton;
+}
+
+void newSlideFunction() {
+	txtInput.erase();
+	txtInput.set("id ");
+	txtInput.start();
+	inputScreen.show();
 }
 
 void newImageFunction(MySlide& _s) {
 	txtInput.erase();
 	txtInput.set("Image ");
+	txtInput.start();
+	inputScreen.show();
+}
+
+void openButtonFunction() {
+	txtInput.erase();
+	txtInput.set("filename ");
 	txtInput.start();
 	inputScreen.show();
 }
@@ -114,6 +142,12 @@ void newSoundFunction(MySlide& _s) {
 	txtInput.set("Sound ");
 	txtInput.start();
 	inputScreen.show();
+}
+
+void closeButtonFunction() {
+	sl.destroySlide();
+	sl.setFile("");
+	slideId._ids.erase(slideId._ids.begin(), slideId._ids.end());
 }
 
 void okButton() {
@@ -142,10 +176,22 @@ void processNewSoundButton(MySlide& _s) {
 	newSoundButton.checkAndTakeAction(_s);
 }
 
+void processNewSlideButton() {
+	newSlideButton.checkAndTakeAction();
+}
+
 void processSaveButton(MySlide& _s) {
 	saveButton.process(_s);
 }
- 
+
+void processOpenButton() {
+	openButton.checkAndTakeAction();
+}
+
+void processCloseButton() {
+	closeButton.checkAndTakeAction();
+}
+
 void initOthers() {
 	setActionsForAll();
 	initPlaySlidesButton(30, 740);
@@ -170,6 +216,7 @@ void initUI(){
     initUpperBorder();
     initLeftBorder();
 	initBottomBorder();
+	initScrollBarBorder();
     setExitButton(1220, 20);
     setOpenButton(30, 20);
     setCloseButton(110, 20);
@@ -206,6 +253,7 @@ void renderMainUI() {
     drawUpperBorder(DGREEN);
     drawLeftBorder(DGREEN);
 	drawBottomBorder(DGREEN);
+	drawScrollBarBorder(DGREEN);
     exitButton.drawButton(mainScreen);
     openButton.drawButton(mainScreen);
     closeButton.drawButton(mainScreen);
@@ -288,6 +336,21 @@ void initLeftBorder(){
 void initUpperBorder(){
     setUpperBorder(0, 100, mainScreenWidth, 3);
     drawUpperBorder(BLACK);
+}
+
+void setScrollBarBorder(int x, int y, int w, int h) {
+	scrollBarBorder = { x, y, w, h };
+}
+
+void drawScrollBarBorder(Color c) {
+	SDL_Color tmp;
+	setColor(tmp, c);
+	mainScreen.drawRect(scrollBarBorder.x, scrollBarBorder.y, scrollBarBorder.w, scrollBarBorder.h, tmp);
+}
+
+void initScrollBarBorder() {
+	setScrollBarBorder(272, 100, 3, 630);
+	drawScrollBarBorder(BLACK);
 }
 
 void setExitButton(int x, int y) {

@@ -6,7 +6,6 @@
 using namespace std;
 
 void MyText::setInfo(vector<string> sl) {
-    
     if(sl[0] == "Text") {
 		_vec = sl;
 		current = getStringFromVector(_vec);

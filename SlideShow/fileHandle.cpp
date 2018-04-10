@@ -285,6 +285,22 @@ bool isSlideWithIdEmpty(string fileName, int id){
     return false;
 }
 
+void createSlideInFileWithId(std::string fileName, int id) {
+	if (isFileSlideShow(fileName)) {
+		if (ifSlideIdExists(fileName, id)) {
+			std::cout << "Slide with id: " << id << " already exists" << std::endl;
+		}
+		else {
+			write(fileName, "----------", true);
+			write(fileName, to_string(id), true);
+			write(fileName, "----------", true);
+		}
+	}
+	else {
+		std::cout << fileName << " is not a slideShow file" << std::endl;
+	}
+}
+
 void splitString(string theString, vector<string> &vec, char ch)
 {
     int j = 0, i=-1;
@@ -534,4 +550,14 @@ void split(string str, std::vector<string>& _t) {
 	{
 		finalStr.push_back(_t[1]);
 	}
+}
+
+bool ifFileExists(std::string fileName) {
+	ifstream _read;
+	_read.open(fileName);
+	bool exists = true;
+	if (!_read)
+		exists = false;
+	_read.close();
+	return exists;
 }

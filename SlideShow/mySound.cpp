@@ -97,6 +97,10 @@ void MySound::renderButton() {
 void MySound::destroy() {
     sound.destroy();
     button.destroy();
+	button.action1 = nullptr;
+	button.action2 = nullptr;
+	button.buttonRect = { 0,0,0,0 };
+	button.textRect = { 0,0,0,0 };
 }
 
 void MySound::processButton() {

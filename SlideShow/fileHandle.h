@@ -40,6 +40,7 @@ void displaySlideInfo(Slide s);
 int getLineWhichContains(std::string fileName, std::string text);
 void replaceLine(std::string  fileName, std::string text, int line);
 void split(std::string str, std::vector<std::string>& _t);
+bool ifFileExists(std::string fileName);
 
 /* ----------------- Needed Functions --------------------- */
 bool isFileSlideShow(std::string fileName);
@@ -60,4 +61,5 @@ void loadSlideWithId(Slide &s, std::string fileName, int id);
 int getSlideIdNumber(std::string fileName, int slide);
 bool ifSlideIdExists(std::string fileName, int slideId);
 bool isSlideWithIdEmpty(std::string fileName, int id);
+void createSlideInFileWithId(std::string fileName, int id);
 /* ----------------- With Id Functions -------------------- */

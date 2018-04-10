@@ -19,8 +19,10 @@ void Sound::setPath(std::string path) {
 }
 
 void Sound::destroy() {
-    if(music != nullptr)
-        Mix_FreeMusic(music);
+	if (music != nullptr) {
+		Mix_FreeMusic(music);
+	}
+	music = nullptr;
 }
 
 bool Sound::ifSoundExists(std::string _fName) {

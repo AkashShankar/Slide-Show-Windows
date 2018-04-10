@@ -61,7 +61,7 @@ void Screen::render(void(*renderFunction)(void)) {
 }
 
 void Screen::clearScreen() {
-    memset(screenBuffer, 220, sizeof(Uint32) * width * height);
+    memset(screenBuffer, 210, sizeof(Uint32) * width * height);
 }
 
 void Screen::hide()

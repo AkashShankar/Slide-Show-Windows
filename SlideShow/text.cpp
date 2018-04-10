@@ -39,6 +39,9 @@ void Text::init() {
     SDL_Surface *tmpSurface = TTF_RenderText_Solid(font, text.c_str(), fontColor);
 	if (!tmpSurface)
 		return;
+	if (renderer == nullptr) {
+		std::cout << "renderer == nullptr" << std::endl;
+	}
     texture = SDL_CreateTextureFromSurface(renderer, tmpSurface);
 	if (!texture) {
 		std::cout << "SDL: " << SDL_GetError() << std::endl;
@@ -113,16 +116,15 @@ bool Text::isMouseOn(int x, int y) {
 }
 
 void Text::destroy() {
-    if(font != nullptr)
-        TTF_CloseFont(font);
+	if (font != nullptr)
+		TTF_CloseFont(font);
     if(texture != nullptr)
         SDL_DestroyTexture(texture);
-    if(renderer != nullptr)
-        SDL_DestroyRenderer(renderer);
+	font = nullptr;
+	texture = nullptr;
 }
 
-bool Text::ifTextExists(std::string _fName)
-{
+bool Text::ifTextExists(std::string _fName) {
 	bool exists = true;
 	TTF_Font *tmpFont = nullptr;
 	tmpFont = TTF_OpenFont(_fName.c_str(), 10);

@@ -1,0 +1,7 @@
+***SlideShowApp***
+----------
+10
+Image x:847 y:349 w:159 h:172 path:batman.jpg
+Image x:447 y:170 w:176 h:156 path:nature.jpg
+Text x:771 y:152 fontsize:36 font:TNR.ttf Color:PURPLE text:"text with spaces"
+----------

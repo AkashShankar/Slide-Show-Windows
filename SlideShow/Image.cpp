@@ -107,6 +107,7 @@ void Image::changeAlpha_Image(bool increase){
 void Image::destroy() {
     if(texture != nullptr)
         SDL_DestroyTexture(texture);
+	texture = nullptr;
 }
 
 bool Image::ifImageExists(std::string _fName) {
