@@ -1,0 +1,10 @@
+***SlideShowApp***
+----------
+1
+Text x:200 y:300 fontsize:20 font:TNR_Bold.ttf Color:TEAL text:"First Text"
+Image x:979 y:158 w:200 h:200 path:batman.jpg
+----------
+----------
+2
+Image x:200 y:300 w:200 h:200 path:leaf.jpg
+----------

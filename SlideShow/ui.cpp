@@ -38,6 +38,7 @@ Button newSoundButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button inputCloseButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button refreshButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button inputEnterButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
+Button newFileButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 
 // Image Buttons
 Image nextButton;
@@ -76,6 +77,7 @@ void setNewSoundButton(int x, int y);
 void setInputCloseButton(int x, int y);
 void setRefreshButton(int x, int y);
 void setInputEnterButton(int x, int y);
+void setNewFileButton(int x, int y);
 
 // Image Buttons
 void initNextButton(int x, int y);
@@ -95,6 +97,7 @@ void newSlideFunction();
 void openButtonFunction();
 void closeButtonFunction();
 void okButton();
+void newFileFunction();
 void initOthers();
 
 void setActionsForAll() {
@@ -107,6 +110,7 @@ void setActionsForAll() {
 	openButton.action1 = openButtonFunction;
 	closeButton.action1 = closeButtonFunction;
 	inputEnterButton.action1 = okButton;
+	newFileButton.action1 = newFileFunction;
 }
 
 void newSlideFunction() {
@@ -146,8 +150,16 @@ void newSoundFunction(MySlide& _s) {
 
 void closeButtonFunction() {
 	sl.destroySlide();
-	sl.setFile("");
+	sl.setFile("nullfile.txt");
 	slideId._ids.erase(slideId._ids.begin(), slideId._ids.end());
+	slideId.setFile("nullfile.txt");
+}
+
+void newFileFunction() {
+	txtInput.erase();
+	txtInput.set("NewFilename ");
+	txtInput.start();
+	inputScreen.show();
 }
 
 void okButton() {
@@ -178,6 +190,10 @@ void processNewSoundButton(MySlide& _s) {
 
 void processNewSlideButton() {
 	newSlideButton.checkAndTakeAction();
+}
+
+void processNewFileButton() {
+	newFileButton.checkAndTakeAction();
 }
 
 void processSaveButton(MySlide& _s) {
@@ -225,7 +241,8 @@ void initUI(){
     setNewImageButton(420, 20);
     setNewTextButton(510, 20);
     setNewSoundButton(590, 20);
-	setRefreshButton(30, 65);
+	setRefreshButton(100, 65);
+	setNewFileButton(30, 65);
 
     setInputCloseButton(340, 65);
 	setInputEnterButton(280, 65);
@@ -244,6 +261,7 @@ void processMainUI() {
         newTextButton.process();
         newSoundButton.process();
 		refreshButton.process();
+		newFileButton.process();
 		processAllNavigationButtons();
 		renderAllNavigationButtons();
     }
@@ -263,6 +281,7 @@ void renderMainUI() {
     newTextButton.drawButton(mainScreen);
     newSoundButton.drawButton(mainScreen);
 	refreshButton.drawButton(mainScreen);
+	newFileButton.drawButton(mainScreen);
 	renderAllNavigationButtons();
 }
 
@@ -289,6 +308,7 @@ void destroyUI() {
     inputCloseButton.destroy();
 	refreshButton.destroy();
 	inputEnterButton.destroy();
+	newFileButton.destroy();
     cout << "All UI Destroyed" << endl;
 }
 /* -------------UI Functions -------------*/
@@ -421,6 +441,13 @@ void setRefreshButton(int x, int y) {
 	refreshButton.setRenderer(mainScreen.getRenderer());
 	refreshButton.setColors(defBCol, defHCol, defICol, defFCol);
 	refreshButton.initText("Refresh", x, y);
+}
+
+void setNewFileButton(int x, int y) {
+	newFileButton.initFont();
+	newFileButton.setRenderer(mainScreen.getRenderer());
+	newFileButton.setColors(defBCol, defHCol, defICol, defFCol);
+	newFileButton.initText("New", x, y);
 }
 
 // Image Button

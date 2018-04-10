@@ -16,5 +16,6 @@ void processNewSoundButton(MySlide&);
 void processOpenButton();
 void processCloseButton();
 void processNewSlideButton();
+void processNewFileButton();
 
 
