@@ -4,6 +4,8 @@
 #include "utilities.h"
 #include "fileHandle.h"
 
+extern const Uint8* keyState;
+
 using namespace std;
 
 void MyImage::setInfo(std::vector<std::string> sl) {
@@ -90,4 +92,12 @@ void MyImage::displayInfo() {
 
 void MyImage::renderDes() {
 	image.renderDes();
+}
+
+void MyImage::checkToDelete(std::string fName) {
+	if (keyState[SDL_SCANCODE_X]) {
+		int line = getLineWhichContains(fName, current);
+		if (line != -1)
+			deleteLineInFile(fName, line);
+	}
 }

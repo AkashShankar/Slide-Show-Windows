@@ -21,5 +21,6 @@ public:
 	void save(std::string fileName);
 	std::vector<std::string> getUpdatedVector();
 	std::string customGetStringFromVector(std::vector<std::string> &t);
+	void checkAndDelete(std::string fName);
 };
 

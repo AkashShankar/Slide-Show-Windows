@@ -1,9 +1,37 @@
 ***SlideShowApp***
 ----------
 1
+Image x:615 y:157 w:200 h:200 path:nature.jpg
 Image x:979 y:158 w:200 h:200 path:batman.jpg
+Text x:767 y:164 fontsize:20 font:courbd.ttf Color:NAVY text:"Slide-1"
 ----------
 ----------
 3
-Text x:200 y:300 fontsize:20 font:courbd.ttf Color:NAVY text:"Navy colour"
+Image x:774 y:238 w:200 h:200 path:leaf.jpg
+Text x:767 y:164 fontsize:20 font:courbd.ttf Color:NAVY text:"Slide-2"
+----------
+----------
+5
+Image x:774 y:238 w:200 h:200 path:balls.jpeg
+Text x:767 y:164 fontsize:20 font:courbd.ttf Color:NAVY text:"Slide-3"
+----------
+----------
+7
+Image x:774 y:238 w:200 h:200 path:cartoon.jpg
+Text x:767 y:164 fontsize:20 font:courbd.ttf Color:NAVY text:"Slide-4"
+----------
+----------
+9
+Image x:774 y:238 w:200 h:200 path:leaf.jpg
+Text x:767 y:164 fontsize:20 font:courbd.ttf Color:NAVY text:"Slide-5"
+----------
+----------
+11
+Image x:774 y:238 w:200 h:200 path:leaf.jpg
+Text x:767 y:164 fontsize:20 font:courbd.ttf Color:NAVY text:"Slide-6"
+----------
+----------
+12
+Image x:774 y:238 w:200 h:200 path:leaf.jpg
+Text x:767 y:164 fontsize:20 font:courbd.ttf Color:NAVY text:"Slide-7"
 ----------

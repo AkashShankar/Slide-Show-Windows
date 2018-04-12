@@ -5,6 +5,7 @@
 #include "fileHandle.h"
 
 extern Screen mainScreen;
+extern const Uint8* keyState;
 
 void MySound::setInfo(std::vector<std::string> sl) {
     if(sl[0] == "Sound") {
@@ -50,6 +51,14 @@ void MySound::save(std::string fileName) {
 	int line = getLineWhichContains(fileName, current);
 	replaceLine(fileName, _tmpStr, line);
 	current = _tmpStr;
+}
+
+void MySound::checkAndDelete(std::string fName) {
+	if (keyState[SDL_SCANCODE_X]) {
+		int _line = getLineWhichContains(fName, current);
+		if (_line != -1)
+			deleteLineInFile(fName, _line);
+	}
 }
 
 void MySound::checkToPlay() {

@@ -6,6 +6,7 @@
 
 extern Screen mainScreen;
 extern SDL_Event event;
+extern const Uint8* keyState;
 SDL_Rect screenShotRect;
 SDL_Rect srcScreenShotRect;
 
@@ -187,6 +188,24 @@ void ScrollBar::adjustRect() {
 		_rect.y = lowerBoundY;
 }
 
+void ScrollBar::initalise(ScreenShots & _sc) {
+	totalLength = abs(upperBoundY - lowerBoundY);
+	maxLevels = _sc.maxBulkIndex;
+}
+
+void ScrollBar::calculateCurrentLevel() {
+	currentLength = abs(upperBoundY - _rect.y);
+	double per = totalLength / maxLevels;
+	currentLevel = currentLength / per;
+	if (currentLevel == 0)
+		currentLevel = 1;
+	/*
+	std::cout << "currentLength: " << currentLength << std::endl;
+	std::cout << "per: " << per << std::endl;
+	std::cout << "currentLevel: " << currentLevel << std::endl;
+	*/
+}
+
 void ScrollBar::setBounds(int upper, int lower) {
 	upperBoundY = upper;
 	lowerBoundY = lower;
@@ -209,6 +228,12 @@ ScreenShots::ScreenShots() {
 
 void ScreenShots::set(int x, int y, int w, int h) {
 	_rect = { x, y, w, h };
+	SDL_Rect tmpRect = { _rect.x, _rect.y + 30, _rect.w, _rect.h };
+	_rects[0] = tmpRect;
+	_rects[1] = _rects[0];
+	_rects[1].y = _rect.y + (int)(1.5*_rect.h);
+	_rects[2] = tmpRect;
+	_rects[2].y = _rect.y + (int)(2.8*_rect.h);
 }
 
 void ScreenShots::push() {
@@ -247,10 +272,70 @@ void ScreenShots::setRenderer(SDL_Renderer *_r) {
 	renderer = _r;
 }
 
-void ScreenShots::render() {
-	for (int i = 0; i < screenShots.size(); i++) {
-		SDL_Rect tmpRect = { _rect.x, _rect.y + i * _rect.h, _rect.w, _rect.h };
-		SDL_RenderCopy(mainScreen.getRenderer(), screenShots[i], &srcScreenShotRect, &tmpRect);
-		drawBorderRect(_rect.x - 5, _rect.y + i * _rect.h, _rect.w + 10, _rect.h + 10);
+void ScreenShots::render(ScrollBar& _sc) {
+	if (screenShots.size() == 0)
+		return;
+
+	calculateIndices();
+	bulkIndex = _sc.currentLevel;
+
+
+	if (bulkIndex < 1)
+		return;
+
+	if (extraLoops > 0 && bulkIndex == maxBulkIndex) {
+		int j = 0;
+		int i = 0;
+		int start = 0;
+		int end = 0;
+		if (minLoops == 0) {
+			start = 0;
+			end = extraLoops;
+		}
+		else {
+			start = (maxBulkIndex - 1) * 3;
+			end = start + extraLoops;
+		}
+		for (int i = start; i < end; i++) {
+			SDL_RenderCopy(mainScreen.getRenderer(), screenShots[i], &srcScreenShotRect, &_rects[j]);
+			drawBorderRect(_rects[j].x - 10, _rects[j].y - 10, _rects[j].w + 10, _rects[j].h + 10);
+			j++;
+		}
 	}
+	else {
+		int start = (bulkIndex - 1) * 3;
+		int end = start + 3;
+		int j = 0;
+		for (int i = start; i < end; i++) {
+			SDL_RenderCopy(mainScreen.getRenderer(), screenShots[i], &srcScreenShotRect, &_rects[j]);
+			drawBorderRect(_rects[j].x - 10, _rects[j].y - 10, _rects[j].w + 10, _rects[j].h + 10);
+			j++;
+		}
+	}
+}
+
+void ScreenShots::inc() {
+	if (bulkIndex < maxBulkIndex)
+		bulkIndex++;
+}
+
+void ScreenShots::dec() {
+	if (bulkIndex > 1)
+		bulkIndex--;
+}
+
+void ScreenShots::calculateIndices() {
+	int _size = screenShots.size();
+	maxBulkIndex = (_size / 3) + ((_size % 3) != 0);
+	minLoops = _size / 3;
+	extraLoops = _size % 3;
+	if (keyState && keyState[SDL_SCANCODE_RIGHT])
+		inc();
+	else if (keyState && keyState[SDL_SCANCODE_LEFT])
+		dec();
+}
+
+void ScreenShots::setInitialBulkIndex() {
+	if (screenShots.size() > 0)
+		bulkIndex = 1;
 }

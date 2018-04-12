@@ -6,13 +6,13 @@
 
 class MySound {
 private:
-    Button button;
     Resource resType = SOUND;
     std::string path;
     int x  = 400;
     int y = 400;
 	std::vector<std::string> _vec;
 public:
+	Button button;
 	std::string current;
 	std::string text;
     Sound sound;
@@ -29,4 +29,5 @@ public:
     bool getClicked();
 	std::vector<std::string> getUpdatedVector();
 	void save(std::string fileName);
+	void checkAndDelete(std::string fName);
 };

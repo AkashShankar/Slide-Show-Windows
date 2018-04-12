@@ -1,2 +1,5 @@
 ﻿  main.cpp
+  utilities.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\utilities.cpp(199): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
   SlideShow.vcxproj -> C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Debug\SlideShow.exe

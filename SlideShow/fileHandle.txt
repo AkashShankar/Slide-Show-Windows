@@ -3,10 +3,9 @@
 10
 Image x:975 y:116 w:200 h:200 path:tiger.jpg
 Image x:1064 y:443 w:159 h:172 path:batman.jpg
-Image x:584 y:282 w:176 h:156 path:nature.jpg
-Image x:371 y:110 w:147 h:142 path:cartoon.jpg
-Text x:448 y:523 fontsize:20 font:TNR.ttf Color:PURPLE text:"Akash is Coding"
-Text x:733 y:456 fontsize:20 font:TNR.ttf Color:PURPLE text:"text with spaces"
+Image x:392 y:160 w:176 h:156 path:nature.jpg
+Text x:769 y:180 fontsize:20 font:TNR.ttf Color:PURPLE text:"Akash is Coding"
+Text x:709 y:244 fontsize:20 font:TNR.ttf Color:PURPLE text:"text with spaces"
 Sound text:Doom.mp3 x:968 y:351 path:r1.mp3
 ----------
 ----------
@@ -16,6 +15,21 @@ Text x:536 y:234 fontsize:30 font:TNR.ttf Color:PURPLE text:"Slide-2"
 ----------
 ----------
 13
+Image x:772 y:275 w:159 h:172 path:batman.jpg
+Image x:508 y:280 w:176 h:156 path:nature.jpg
+----------
+----------
+6
+Image x:772 y:275 w:159 h:172 path:batman.jpg
+Image x:508 y:280 w:176 h:156 path:nature.jpg
+----------
+----------
+9
+Image x:772 y:275 w:159 h:172 path:batman.jpg
+Image x:508 y:280 w:176 h:156 path:nature.jpg
+----------
+----------
+19
 Image x:772 y:275 w:159 h:172 path:batman.jpg
 Image x:508 y:280 w:176 h:156 path:nature.jpg
 ----------

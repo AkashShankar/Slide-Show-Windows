@@ -26,4 +26,5 @@ public:
     void destroy();
 	std::vector<std::string> getUpdatedVector();
 	void save(std::string fileName);
+	void checkToDelete(std::string fName);
 };

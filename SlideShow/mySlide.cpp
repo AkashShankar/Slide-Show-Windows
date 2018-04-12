@@ -81,14 +81,19 @@ void MySlide::process(){
         if(images[i].clicked())
         {
             checkAndChangeAlpha(i);
+			images[i].checkToDelete(this->fileName);
             break;
         }
     }
     for(unsigned long i = 0; i < texts.size(); i++) {
         texts[i].checkAndMove();
+		if (texts[i].text.clicked)
+			texts[i].checkAndDelete(this->fileName);
     }
     for(unsigned long i = 0; i < sounds.size(); i++) {
         sounds[i].processButton();
+		if (sounds[i].button.clickedToMove)
+			sounds[i].checkAndDelete(this->fileName);
     }
 }
 

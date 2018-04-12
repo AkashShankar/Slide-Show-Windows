@@ -5,6 +5,8 @@
 #include "utilities.h"
 using namespace std;
 
+extern const Uint8* keyState;
+
 void MyText::setInfo(vector<string> sl) {
     if(sl[0] == "Text") {
 		_vec = sl;
@@ -92,6 +94,20 @@ void MyText::init(SDL_Renderer *renderer) {
     text.setPath(this->fontPath);
     text.setFontSize(this->fontSize);
     text.init();
+}
+
+void MyText::checkAndDelete(std::string fName) {
+	if (keyState[SDL_SCANCODE_X]) {
+		int _pos = current.find("text:", 0);
+		_pos += 5;
+		std::string finalString = current.substr(0, _pos);
+		finalString += "\"";
+		finalString += text.text;
+		finalString += "\"";
+		int line = getLineWhichContains(fName, finalString);
+		if (line != -1)
+			deleteLineInFile(fName, line);
+	}
 }
 
 void MyText::checkAndMove() {
