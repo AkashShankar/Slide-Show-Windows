@@ -9,9 +9,9 @@ private:
     SDL_Texture *texture;
     TTF_Font *font;
     SDL_Color fontColor;
-    std::string text;
     std::string fontPath;
 public:
+	std::string text;
 	int fontSize;
     SDL_Renderer *renderer;
     bool clicked = false;

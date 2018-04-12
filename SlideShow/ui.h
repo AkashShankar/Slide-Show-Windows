@@ -17,5 +17,6 @@ void processOpenButton();
 void processCloseButton();
 void processNewSlideButton();
 void processNewFileButton();
+void processDeleteButton();
 
 

@@ -39,6 +39,7 @@ Button inputCloseButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button refreshButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button inputEnterButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 Button newFileButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
+Button deleteButton(buttonFontPath, buttonFontSize, paddingX, paddingY);
 
 // Image Buttons
 Image nextButton;
@@ -78,6 +79,7 @@ void setInputCloseButton(int x, int y);
 void setRefreshButton(int x, int y);
 void setInputEnterButton(int x, int y);
 void setNewFileButton(int x, int y);
+void setDeleteButton(int x, int y);
 
 // Image Buttons
 void initNextButton(int x, int y);
@@ -98,6 +100,7 @@ void openButtonFunction();
 void closeButtonFunction();
 void okButton();
 void newFileFunction();
+void commandFunction();
 void initOthers();
 
 void setActionsForAll() {
@@ -111,6 +114,7 @@ void setActionsForAll() {
 	closeButton.action1 = closeButtonFunction;
 	inputEnterButton.action1 = okButton;
 	newFileButton.action1 = newFileFunction;
+	deleteButton.action1 = commandFunction;
 }
 
 void newSlideFunction() {
@@ -162,6 +166,13 @@ void newFileFunction() {
 	inputScreen.show();
 }
 
+void commandFunction() {
+	txtInput.erase();
+	txtInput.set("Delete ");
+	txtInput.start();
+	inputScreen.show();
+}
+
 void okButton() {
 	processInput();
 }
@@ -208,6 +219,10 @@ void processCloseButton() {
 	closeButton.checkAndTakeAction();
 }
 
+void processDeleteButton() {
+	deleteButton.checkAndTakeAction();
+}
+
 void initOthers() {
 	setActionsForAll();
 	initPlaySlidesButton(30, 740);
@@ -243,6 +258,7 @@ void initUI(){
     setNewSoundButton(590, 20);
 	setRefreshButton(100, 65);
 	setNewFileButton(30, 65);
+	setDeleteButton(680, 20);
 
     setInputCloseButton(340, 65);
 	setInputEnterButton(280, 65);
@@ -262,6 +278,7 @@ void processMainUI() {
         newSoundButton.process();
 		refreshButton.process();
 		newFileButton.process();
+		deleteButton.process();
 		processAllNavigationButtons();
 		renderAllNavigationButtons();
     }
@@ -282,6 +299,7 @@ void renderMainUI() {
     newSoundButton.drawButton(mainScreen);
 	refreshButton.drawButton(mainScreen);
 	newFileButton.drawButton(mainScreen);
+	deleteButton.drawButton(mainScreen);
 	renderAllNavigationButtons();
 }
 
@@ -309,6 +327,7 @@ void destroyUI() {
 	refreshButton.destroy();
 	inputEnterButton.destroy();
 	newFileButton.destroy();
+	deleteButton.destroy();
     cout << "All UI Destroyed" << endl;
 }
 /* -------------UI Functions -------------*/
@@ -448,6 +467,13 @@ void setNewFileButton(int x, int y) {
 	newFileButton.setRenderer(mainScreen.getRenderer());
 	newFileButton.setColors(defBCol, defHCol, defICol, defFCol);
 	newFileButton.initText("New", x, y);
+}
+
+void setDeleteButton(int x, int y) {
+	deleteButton.initFont();
+	deleteButton.setRenderer(mainScreen.getRenderer());
+	deleteButton.setColors(defBCol, defHCol, defICol, defFCol);
+	deleteButton.initText("Delete", x, y);
 }
 
 // Image Button

@@ -31,4 +31,7 @@ public:
     void process();
     void destroy();
 	void insert(std::string _txt);
+	std::string getStringOfImageWithName(std::string fName);
+	std::string getStringOfTextWithName(std::string fName);
+	std::string getStringOfSoundWithName(std::string _text);
 };

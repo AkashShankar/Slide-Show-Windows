@@ -10,9 +10,10 @@ class MyImage
 private:
 	Image image;
     SDL_Rect rect;
-    std::string path;
     Resource resType;
 	std::vector<std::string> _vec;
+public:
+	std::string path;
 	std::string current;
 public:
     void setInfo(std::vector<std::string> sl);

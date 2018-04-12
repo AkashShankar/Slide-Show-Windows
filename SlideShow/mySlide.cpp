@@ -189,3 +189,30 @@ void MySlide::destroy(){
 void MySlide::insert(std::string _txt) {
 	putToSlideWithId(fileName, id, _txt);
 }
+
+std::string MySlide::getStringOfImageWithName(std::string fName){
+	for (unsigned long i = 0; i < images.size(); i++) {
+		std::string tmpName = images[i].path;
+		if (fName == tmpName)
+			return images[i].current;
+	}
+	return "*** Not Found ***";
+}
+
+std::string MySlide::getStringOfTextWithName(std::string fName) {
+	for (unsigned long i = 0; i < texts.size(); i++) {
+		std::string tmpText = texts[i].text.text;
+		if (fName == tmpText)
+			return texts[i].current;
+	}
+	return "*** Not Found ***";
+}
+
+std::string MySlide::getStringOfSoundWithName(std::string _text) {
+	for (unsigned long i = 0; i < sounds.size(); i++) {
+		std::string tmpText = sounds[i].text;
+		if (_text == tmpText)
+			return sounds[i].current;
+	}
+	return "*** Not Found ***";
+}
