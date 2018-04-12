@@ -1,10 +1,9 @@
-﻿  main.cpp
-  utilities.cpp
-c:\users\akash\desktop\github\slideshow_windows_port\slideshow\utilities.cpp(199): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+﻿  utilities.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\utilities.cpp(200): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
      Creating library C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Release\SlideShow.lib and object C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Release\SlideShow.exp
   Generating code
-  8 of 1289 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+  3 of 1289 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SlideShow.vcxproj -> C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Release\SlideShow.exe

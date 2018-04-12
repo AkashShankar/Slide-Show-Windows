@@ -1,7 +1,7 @@
 ***SlideShowApp***
 ----------
 1
-Image x:615 y:157 w:200 h:200 path:nature.jpg
+Image x:487 y:170 w:200 h:200 path:nature.jpg
 Image x:979 y:158 w:200 h:200 path:batman.jpg
 Text x:767 y:164 fontsize:20 font:courbd.ttf Color:NAVY text:"Slide-1"
 ----------

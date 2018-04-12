@@ -178,6 +178,7 @@ void ScrollBar::checkAndMove() {
 		SDL_GetMouseState(&x, &y);
 		_rect.y = y - _rect.w + 10;
 		adjustRect();
+		calculateCurrentLevel();
 	}
 }
 
@@ -196,14 +197,9 @@ void ScrollBar::initalise(ScreenShots & _sc) {
 void ScrollBar::calculateCurrentLevel() {
 	currentLength = abs(upperBoundY - _rect.y);
 	double per = totalLength / maxLevels;
-	currentLevel = currentLength / per;
+	currentLevel = ceil(currentLength / per);
 	if (currentLevel == 0)
 		currentLevel = 1;
-	/*
-	std::cout << "currentLength: " << currentLength << std::endl;
-	std::cout << "per: " << per << std::endl;
-	std::cout << "currentLevel: " << currentLevel << std::endl;
-	*/
 }
 
 void ScrollBar::setBounds(int upper, int lower) {
