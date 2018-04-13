@@ -4,8 +4,7 @@
 
 const char* e2 = "Num Slides error";
 
-void SlideId::loadAllIds()
-{
+void SlideId::loadAllIds() {
 	int numSlides = getNumSlides(fileName);
 	if (numSlides == -1)
 		throw e2;

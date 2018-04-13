@@ -8,13 +8,13 @@
 class MyImage
 {
 private:
-	Image image;
     SDL_Rect rect;
     Resource resType;
 	std::vector<std::string> _vec;
 public:
 	std::string path;
 	std::string current;
+	Image image;
 public:
     void setInfo(std::vector<std::string> sl);
     void setTexture(SDL_Renderer *renderer);

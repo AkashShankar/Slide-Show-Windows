@@ -1,9 +1,24 @@
-﻿  utilities.cpp
-c:\users\akash\desktop\github\slideshow_windows_port\slideshow\utilities.cpp(200): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+﻿  Image.cpp
+  SlideId.cpp
+  SlideShow.cpp
+  Sound.cpp
+  TextInput.cpp
+  button.cpp
+  fileHandle.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\filehandle.cpp(309): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+  myImage.cpp
+  mySlide.cpp
+  mySound.cpp
+  myText.cpp
+  text.cpp
+  ui.cpp
+  utilities.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\utilities.cpp(205): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
      Creating library C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Release\SlideShow.lib and object C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Release\SlideShow.exp
   Generating code
-  3 of 1289 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  5 of 1293 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    22 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SlideShow.vcxproj -> C:\Users\akash\Desktop\GitHub\SlideShow_Windows_Port\Release\SlideShow.exe

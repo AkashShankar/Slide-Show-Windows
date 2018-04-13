@@ -199,4 +199,3 @@ void Button::destroy(){
 	texture = nullptr;
 	font = nullptr;
 }
-

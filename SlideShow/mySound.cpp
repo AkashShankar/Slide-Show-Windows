@@ -6,6 +6,7 @@
 
 extern Screen mainScreen;
 extern const Uint8* keyState;
+extern bool editMode;
 
 void MySound::setInfo(std::vector<std::string> sl) {
     if(sl[0] == "Sound") {
@@ -114,7 +115,8 @@ void MySound::destroy() {
 
 void MySound::processButton() {
 	button.process();
-    button.checkBounds1();
+	if(editMode)
+		button.checkBounds1();
 }
 
 void MySound::processSound() {

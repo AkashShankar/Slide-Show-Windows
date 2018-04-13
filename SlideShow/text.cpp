@@ -7,6 +7,7 @@ extern SDL_Event event;
 extern SDL_Rect upperBorder;
 extern SDL_Rect leftBorder;
 extern const Uint8* keyState;
+extern bool editMode;
 
 Text::Text(std::string fontPath, int fontSize) {
     this->fontPath = fontPath;
@@ -95,8 +96,8 @@ void Text::checkAndMove() {
 			}
 		}
     }
-	
-    adjustDesRect();
+	if(editMode)
+		adjustDesRect();
 }
 
 void Text::adjustDesRect(){

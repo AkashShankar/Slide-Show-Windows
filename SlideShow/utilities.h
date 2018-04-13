@@ -65,6 +65,7 @@ public:
 	int extraLoops{ -1 };
 	int bulkIndex{ -1 };
 	int maxBulkIndex{ -1 };
+	int currentImage{ -1 };
 public:
 	ScreenShots();
 	void calculateIndices();
@@ -76,6 +77,9 @@ public:
 	void render(ScrollBar& _sc);
 	void drawBorderRect(int x, int y, int w, int h);
 	void setInitialBulkIndex();
+	void destroy();
+	void setCurrentImage();
+	void updateSlide();
 };
 
 void setColor(SDL_Color &color, Color c);
@@ -84,3 +88,4 @@ void putColorToPixel(Uint32 &number, SDL_Color color);
 double map(double from, double fromRange, double toRange);
 Color getColorFromString(std::string c);
 bool checkIfNum(std::string _str);
+bool isMouseOn(SDL_Rect& _r, int x, int y);

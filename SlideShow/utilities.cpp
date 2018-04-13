@@ -3,9 +3,14 @@
 #include <ctime>
 #include "utilities.h"
 #include "screen.h"
+#include "SlideId.h"
+#include "SlideShow.h"
 
 extern Screen mainScreen;
 extern SDL_Event event;
+extern SlideId slideId;
+extern SlideShow sl;
+extern MySlide currentSlide;
 extern const Uint8* keyState;
 SDL_Rect screenShotRect;
 SDL_Rect srcScreenShotRect;
@@ -275,7 +280,6 @@ void ScreenShots::render(ScrollBar& _sc) {
 	calculateIndices();
 	bulkIndex = _sc.currentLevel;
 
-
 	if (bulkIndex < 1)
 		return;
 
@@ -325,13 +329,51 @@ void ScreenShots::calculateIndices() {
 	maxBulkIndex = (_size / 3) + ((_size % 3) != 0);
 	minLoops = _size / 3;
 	extraLoops = _size % 3;
-	if (keyState && keyState[SDL_SCANCODE_RIGHT])
-		inc();
-	else if (keyState && keyState[SDL_SCANCODE_LEFT])
-		dec();
 }
 
 void ScreenShots::setInitialBulkIndex() {
 	if (screenShots.size() > 0)
 		bulkIndex = 1;
+}
+
+void ScreenShots::destroy() {
+	for (unsigned long i = 0; i < screenShots.size(); i++) {
+		SDL_DestroyTexture(screenShots[i]);
+	}
+	maxBulkIndex = { -1 };
+	bulkIndex = { -1 };
+	minLoops = { -1 };
+	extraLoops = { -1 };
+	currentImage = { -1 };
+}
+
+void ScreenShots::setCurrentImage() {
+	int x = 0, y = 0;
+	for (int i = 0; i < 3; i++) {
+		if (event.type == SDL_MOUSEBUTTONDOWN) {
+			SDL_GetMouseState(&x, &y);
+			if (isMouseOn(_rects[i], x, y)) {
+				//std::cout << "Mouse on rect: " << i + 1 << std::endl;
+				//std::cout << "bulkIndex: " << (bulkIndex - 1) << std::endl;
+				//std::cout << "index: " << ((bulkIndex-1) * 3) + i << std::endl;
+				currentImage = ((bulkIndex - 1) * 3) + i;
+				updateSlide();
+			}
+		}
+	}
+}
+
+void ScreenShots::updateSlide() {
+	if (currentImage != -1) {
+		int _tmpId = getIdFromSlide(sl.fileName, currentImage + 1);
+		sl.setCurrentId(_tmpId);
+		currentSlide = sl.getCurrentSlide();
+	}
+}
+
+bool isMouseOn(SDL_Rect& _r, int x, int y) {
+	if (x > _r.x && x < _r.x + _r.w
+		&& y > _r.y && y < _r.y + _r.h)
+		return true;
+	return false;
 }

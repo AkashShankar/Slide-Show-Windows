@@ -5,7 +5,7 @@
 
 class Slide{
 private:
-    std::vector<std::vector<std::string>> Images;
+	std::vector<std::vector<std::string>> Images;
     std::vector<std::vector<std::string>> Texts;
     std::vector<std::vector<std::string>> Sounds;
     int id = -1;

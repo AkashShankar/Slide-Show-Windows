@@ -7,6 +7,7 @@ extern SDL_Rect upperBorder;
 extern SDL_Rect leftBorder;
 extern SDL_Event event;
 extern const Uint8 *keyState;
+extern bool editMode;
 
 Image::Image(){
     pixelFormat = SDL_PIXELFORMAT_RGBA8888;
@@ -63,7 +64,8 @@ void Image::checkAndMove() { // Working Properly
 			}
         }
     }
-    adjustDesRect();
+	if(editMode)
+		adjustDesRect();
 }
 
 void Image::checkToAction() {

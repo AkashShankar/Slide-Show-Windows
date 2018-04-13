@@ -7,7 +7,7 @@
 
 class MySlide{
 private:
-    Slide slide;
+	Slide slide;
     SDL_Renderer *renderer = nullptr;
     std::vector<MyImage> images;
     std::vector<MyText> texts;
