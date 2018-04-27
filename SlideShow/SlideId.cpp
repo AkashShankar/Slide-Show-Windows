@@ -15,18 +15,18 @@ void SlideId::loadAllIds() {
 	std::cout << "All slide id's loaded/refreshed. Total: " << numSlides << std::endl;
 }
 
-void SlideId::increment() {
-	if (currentIndex < getNumIds() - 1) {
+void SlideId::incrementIndex() {
+	if (currentIndex < getNumIds() - 1)
 		currentIndex++;
-		currentId = _ids[currentIndex];
-	}
 }
 
-void SlideId::decrement() {
-	if (currentIndex > 0) {
+void SlideId::decrementIndex() {
+	if (currentIndex > 0)
 		currentIndex--;
-		currentId = _ids[currentIndex];
-	}
+}
+
+void SlideId::updateId() {
+	currentId = _ids[currentIndex];
 }
 
 void SlideId::displayAllIds() {

@@ -35,7 +35,7 @@ void SlideShow::updateSlide() {
 
 void SlideShow::loadSlide() {
 	MySlide tmpSlide;
-	tmpSlide.loadSlide(currentIndex + 1, fileName, mainScreen.getRenderer());
+	LoadMySlide(tmpSlide, currentIndex + 1, fileName, mainScreen.getRenderer());
 	_slides.push_back(tmpSlide);
 }
 
@@ -54,4 +54,13 @@ void SlideShow::destroySlide() {
 
 MySlide SlideShow::getCurrentSlide() {
 	return _slides[currentIndex];
+}
+
+int SlideShow::getAllResources()
+{
+	int sum = 0;
+	for (int i = 0; i < _slides.size(); i++) {
+		sum += _slides[i].getTotalResources();
+	}
+	return sum;
 }

@@ -7,7 +7,7 @@ using namespace std;
 extern SDL_Event event;
 extern const Uint8 *keyState;
 
-void MySlide::loadSlide(int slideNumber, std::string fileName, SDL_Renderer *renderer) {
+void LoadMySlide(MySlide& _s, int slideNumber, std::string fileName, SDL_Renderer *renderer) {
     if(isFileSlideShow(fileName)){
         int numSlides = getNumSlides(fileName);
 		if (numSlides < (slideNumber)) {
@@ -15,41 +15,41 @@ void MySlide::loadSlide(int slideNumber, std::string fileName, SDL_Renderer *ren
 			displaySlideNumOverflow(slideNumber);
 		}
         else {
-			this->fileName = fileName;
-            this->renderer = renderer;
+			_s.fileName = fileName;
+            _s.renderer = renderer;
             int id = getIdFromSlide(fileName, slideNumber);
-            this->slide.setId(id);
-			this->id = id;
+            _s.slide.setId(id);
+			_s.id = id;
             Slide tmp;
             loadSlideWithId(tmp, fileName, id);
-            this->slide = tmp;
+            _s.slide = tmp;
             unsigned long numImages = tmp.getSize(IMAGE);
             unsigned long numTexts = tmp.getSize(TEXT);
             unsigned long numSounds = tmp.getSize(SOUND);
             for ( unsigned long i = 0; i < numImages; i++ ) {
-                vector<string> tmpVec =this->slide.getVector(i , IMAGE);
+                vector<string> tmpVec = _s.slide.getVector(i , IMAGE);
                 MyImage tmpImg;
-                this->images.push_back(tmpImg);
-				this->images[i].setInfo(tmpVec);
-				this->images[i].setTexture(this->renderer);
+                _s.images.push_back(tmpImg);
+				_s.images[i].setInfo(tmpVec);
+				_s.images[i].setTexture(_s.renderer);
             }
             for(unsigned long i = 0; i < numTexts; i++) {
-                vector<string> tmpVec = this->slide.getVector(i, TEXT);
+                vector<string> tmpVec = _s.slide.getVector(i, TEXT);
                 MyText tmpTxt;
-				this->texts.push_back(tmpTxt);
-				this->texts[i].setInfo(tmpVec);
-				this->texts[i].init(this->renderer);
+				_s.texts.push_back(tmpTxt);
+				_s.texts[i].setInfo(tmpVec);
+				_s.texts[i].init(_s.renderer);
             }
             for(unsigned long i = 0; i < numSounds; i++) {
-                vector<string> tmpVec = this->slide.getVector(i, SOUND);
+                vector<string> tmpVec = _s.slide.getVector(i, SOUND);
                 MySound tmpSound;
-				this->sounds.push_back(tmpSound);
-				this->sounds[i].setInfo(tmpVec);
+				_s.sounds.push_back(tmpSound);
+				_s.sounds[i].setInfo(tmpVec);
             }
         }
-		this->slide.setId(getIdFromSlide(fileName, slideNumber));
-		this->setPriority();
-        sortedImagesIndex = this->getImageSorted();
+		_s.slide.setId(getIdFromSlide(fileName, slideNumber));
+		_s.setPriority();
+		_s.sortedImagesIndex = _s.getImageSorted();
     }
     else
         displayFileNotSlideShow(fileName);
@@ -220,4 +220,9 @@ std::string MySlide::getStringOfSoundWithName(std::string _text) {
 			return sounds[i].current;
 	}
 	return "*** Not Found ***";
+}
+
+int MySlide::getTotalResources()
+{
+	return images.size() + texts.size() + sounds.size();
 }

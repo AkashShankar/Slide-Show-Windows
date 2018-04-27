@@ -1,0 +1,37 @@
+﻿  stdafx.cpp
+  button.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\button.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  fileHandle.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\utilities.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  handle.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\screen.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Image.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\image.h(8): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  initApi.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\initapi.cpp(4): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  myImage.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\image.h(8): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  mySlide.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\utilities.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  mySound.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\sound.h(2): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  myText.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\text.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  screen.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\screen.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  main.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\screen.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  SlideId.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\utilities.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  SlideShow.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\utilities.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Sound.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\sound.h(2): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  text.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\text.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  TextInput.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\textinput.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  ui.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\ui.cpp(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  utilities.cpp
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\utilities.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory

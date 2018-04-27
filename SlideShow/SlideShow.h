@@ -20,4 +20,5 @@ public:
 	int getIndexFromId(int id);
 	void loadSlide();
 	MySlide getCurrentSlide();
+	int getAllResources();
 };

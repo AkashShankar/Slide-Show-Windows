@@ -12,8 +12,9 @@ public:
 	inline void setFile(std::string fileName) { this->fileName = fileName; }
 	inline int getNumIds() { return _ids.size(); }
 	void loadAllIds();
-	void increment();
-	void decrement();
+	void updateId();
+	void incrementIndex();
+	void decrementIndex();
 	void displayCurrent();
 	void displayAllIds();
 };

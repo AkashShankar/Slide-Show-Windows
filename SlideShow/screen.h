@@ -3,7 +3,10 @@
 #include <string>
 
 const int mainScreenWidth = 1300 , mainScreenHeight = 810;
-const int inputScreenWidth = 650, inputScreenHeight = 110;
+const int inputScreenWidth = 950, inputScreenHeight = 110;
+
+void initBothScreens();
+void destroyBothScreens();
 
 class Screen {
 private:
@@ -25,12 +28,11 @@ public:
     void setPixel(int x, int y, int r, int g, int b, int a);
     void setPixel(int x, int y, SDL_Color color);
     void drawRect(int x, int y, int w, int h, SDL_Color color);
-    inline Uint32* getPixels() { return screenBuffer; }
     SDL_Renderer* getRenderer();
     SDL_Window* getWindow();
     int getWidth();
     int getHeight();
-    void render(void(*renderFunction)(void));
+    void render(void(*renderFunction)(void)); // Could be replaces by polymorphism ( virtual functions )
     void destroy();
     void clearScreen();
 	void hide();
@@ -44,6 +46,3 @@ public:
     bool minimized;
     bool shown;
 };
-
-void initBothScreens();
-void destroyBothScreens();

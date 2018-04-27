@@ -5,7 +5,7 @@
 #include "Image.h"
 #include "utilities.h"
 
-class MyImage
+class MyImage: public Image
 {
 private:
     SDL_Rect rect;
@@ -14,7 +14,7 @@ private:
 public:
 	std::string path;
 	std::string current;
-	Image image;
+	//Image image;
 public:
     void setInfo(std::vector<std::string> sl);
     void setTexture(SDL_Renderer *renderer);

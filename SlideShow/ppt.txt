@@ -1,0 +1,114 @@
+***SlideShowApp***
+----------
+1
+Text x:755 y:261 fontsize:25 font:TNR.ttf Color:BLACK text:"access"
+Image x:784 y:477 w:289 h:249 path:..\Res\sdl_works.png
+Text x:350 y:387 fontsize:24 font:TNR.ttf Color:BLACK text:"SDL is written in C, works natively with C++"
+Text x:349 y:344 fontsize:24 font:TNR.ttf Color:BLACK text:"It supports Windows, Mac OS X, etc."
+Text x:347 y:297 fontsize:23 font:TNR.ttf Color:BLACK text:" OpenGL and Direct3D"
+Text x:823 y:261 fontsize:26 font:TNR.ttf Color:BLACK text:" to audio, keyboard, mouse and graphics via"
+Text x:351 y:263 fontsize:24 font:TNR.ttf Color:BLACK text:"It is an API designed to provide low level"
+Text x:334 y:199 fontsize:39 font:TNR.ttf Color:RED text:"What is SDL ?"
+Text x:544 y:110 fontsize:44 font:TNR_Bold.ttf Color:BLACK text:"Slide-Show Program"
+Image x:439 y:480 w:234 h:169 path:..\Res\SDL_logo.png
+----------
+----------
+2
+Image x:767 y:446 w:304 h:224 path:..\Res\power_2.png
+Text x:801 y:338 fontsize:24 font:TNR.ttf Color:BLACK text:" PowerPoint App."
+Text x:342 y:337 fontsize:26 font:TNR.ttf Color:BLACK text:" This program is a very simplified version of"
+Image x:397 y:445 w:298 h:227 path:..\Res\power_1.jpeg
+Text x:349 y:273 fontsize:25 font:TNR.ttf Color:BLACK text:"in a prearranged sequence."
+Text x:782 y:233 fontsize:23 font:TNR.ttf Color:BLACK text:" still images on a projection screen, in a "
+Text x:346 y:232 fontsize:25 font:TNR.ttf Color:BLACK text:"A slide show is a presentation of a series of"
+Text x:468 y:112 fontsize:37 font:TNR_Bold.ttf Color:PURPLE text:"What is a Slide-Show Program ?"
+----------
+----------
+3
+Text x:837 y:262 fontsize:34 font:TNR.ttf Color:BLUE text:"What if the GPU is slow ?"
+Image x:821 y:340 w:425 h:370 path:..\Res\mario.png
+Text x:328 y:393 fontsize:27 font:TNR.ttf Color:BLACK text:" Entities, Objects and Events"
+Text x:331 y:111 fontsize:40 font:TNR_Bold.ttf Color:RED text:"A Game Loop"
+Text x:416 y:272 fontsize:39 font:TNR.ttf Color:BLACK text:".. draws"
+Text x:411 y:326 fontsize:32 font:TNR.ttf Color:BLACK text:" and updates.."
+Text x:416 y:229 fontsize:33 font:TNR.ttf Color:BLACK text:"It Initialises"
+Text x:326 y:178 fontsize:28 font:TNR.ttf Color:BLACK text:" It is an infinite loop which: "
+Image x:335 y:440 w:452 h:271 path:..\Res\game_loop_1.png
+----------
+----------
+4
+Sound text:Piano.mp3 x:460 y:579 path:..\Res\piano.mp3
+Text x:374 y:493 fontsize:38 font:TNR.ttf Color:BLUE text:"For example a Sound: "
+Image x:926 y:410 w:287 h:298 path:..\Res\fonts_example.jpg
+Image x:894 y:118 w:337 h:280 path:..\Res\colors_1.png
+Text x:368 y:380 fontsize:24 font:TNR.ttf Color:BLACK text:"3) Sounds with format .mp3 .wav etc"
+Text x:398 y:322 fontsize:23 font:TNR.ttf Color:TEAL text:"b) Different Colors"
+Text x:396 y:281 fontsize:23 font:TNR.ttf Color:TEAL text:"a) Different fonts and size"
+Text x:364 y:230 fontsize:26 font:TNR.ttf Color:BLACK text:"2) Text with: "
+Text x:360 y:180 fontsize:26 font:TNR.ttf Color:BLACK text:"1) Images with format .bmp, .png, .jpeg etc."
+Text x:327 y:116 fontsize:41 font:TNR.ttf Color:PURPLE text:"It can Load: "
+----------
+----------
+5
+Text x:359 y:378 fontsize:25 font:TNR.ttf Color:TEAL text:"Slide : Contains array of strings with file info"
+Text x:739 y:637 fontsize:24 font:TNR.ttf Color:BLACK text:":  Helping classes and files"
+Text x:360 y:635 fontsize:26 font:TNR.ttf Color:PURPLE text:"Utilities FileHandle Handle SlideId"
+Text x:688 y:307 fontsize:24 font:TNR.ttf Color:BLACK text:":  User Interface"
+Text x:355 y:303 fontsize:26 font:TNR.ttf Color:DGREEN text:"UI ScrollBar TextInput Screen"
+Text x:655 y:570 fontsize:25 font:TNR.ttf Color:BLACK text:"Allocates memory and renders onto screen"
+Text x:486 y:239 fontsize:26 font:TNR.ttf Color:BLACK text:": Contains an array of MySlide"
+Text x:628 y:568 fontsize:30 font:TNR.ttf Color:RED text:":"
+Text x:361 y:568 fontsize:25 font:TNR.ttf Color:MAGENTA text:"Image Sound Text Button"
+Text x:575 y:470 fontsize:35 font:TNR.ttf Color:RED text:":"
+Text x:605 y:480 fontsize:25 font:TNR.ttf Color:BLACK text:"Takes info from files and puts it into Resources"
+Text x:475 y:498 fontsize:25 font:TNR.ttf Color:BLUE text:"MySlide"
+Text x:359 y:455 fontsize:26 font:TNR.ttf Color:BLUE text:"MyText"
+Text x:361 y:500 fontsize:25 font:TNR.ttf Color:BLUE text:"MySound"
+Text x:458 y:457 fontsize:25 font:TNR.ttf Color:BLUE text:"MyImage"
+Text x:351 y:237 fontsize:30 font:TNR.ttf Color:DGREEN text:"SlideShow"
+Text x:342 y:167 fontsize:36 font:TNR_Bold.ttf Color:BLUE text:"Classes: "
+Text x:339 y:110 fontsize:40 font:TNR_Bold.ttf Color:RED text:"An overview of the program"
+----------
+----------
+6
+Text x:338 y:200 fontsize:30 font:TNR_Bold.ttf Color:BLACK text:"Every Slide has an ID"
+Text x:337 y:281 fontsize:29 font:TNR_Bold.ttf Color:BLACK text:"The beginning of a resource line should be"
+Text x:856 y:281 fontsize:27 font:TNR_Bold.ttf Color:BLACK text:"one of Text, Image or Sound"
+Text x:323 y:108 fontsize:40 font:TNR_Bold.ttf Color:RED text:"How are files processed ?"
+Text x:338 y:367 fontsize:31 font:TNR_Bold.ttf Color:BLACK text:"Every line is split wrt space and stored in a vector"
+Text x:336 y:452 fontsize:31 font:TNR_Bold.ttf Color:BLACK text:"Then the strings of the vector are cut, and the essential info is taken"
+Text x:339 y:543 fontsize:31 font:TNR_Bold.ttf Color:BLACK text:"The first line should have ***SlideShowApp***"
+----------
+----------
+7
+Text x:674 y:110 fontsize:36 font:TNR_Bold.ttf Color:RED text:"Events"
+Text x:352 y:221 fontsize:30 font:TNR_Bold.ttf Color:BLACK text:"Example: Mouse click event, Keyboard key event, Exit event etc."
+Text x:354 y:375 fontsize:30 font:TNR_Bold.ttf Color:NAVY text:"There is only one Event variable for both windows"
+Text x:354 y:300 fontsize:30 font:TNR_Bold.ttf Color:BLACK text:"User input is also an event"
+Text x:359 y:464 fontsize:30 font:TNR_Bold.ttf Color:BLACK text:"SDL Poll's through all events and they are done one at a time"
+Text x:358 y:554 fontsize:30 font:TNR_Bold.ttf Color:BLACK text:"The action of a button is a function pointer"
+----------
+----------
+8
+Text x:574 y:110 fontsize:36 font:TNR_Bold.ttf Color:RED text:"Very Inefficient, and lot of bugs"
+Text x:353 y:186 fontsize:30 font:TNR_Bold.ttf Color:BLACK text:"A Bit faster if it is a binary file"
+Text x:350 y:235 fontsize:31 font:TNR_Bold.ttf Color:BLACK text:"Info has to be stored in a effective way"
+Text x:353 y:337 fontsize:31 font:TNR_Bold.ttf Color:BLACK text:"The Architecture of Code is not good"
+Text x:353 y:288 fontsize:30 font:TNR_Bold.ttf Color:BLACK text:"Hardware Vs Software Rendering"
+Image x:508 y:416 w:477 h:327 path:..\Res\power_example_1.jpg
+----------
+----------
+9
+Text x:336 y:111 fontsize:36 font:TNR_Bold.ttf Color:RED text:"Ways to improve"
+Text x:367 y:189 fontsize:36 font:TNR_Bold.ttf Color:BLACK text:"Use GUI Api's: Qt, GTK+, wxWidgets etc."
+Text x:367 y:260 fontsize:36 font:TNR_Bold.ttf Color:BLACK text:"Architecture Code and Program than, jumping into coding"
+Text x:366 y:331 fontsize:36 font:TNR_Bold.ttf Color:BLACK text:"Tackle Edge cases"
+Text x:369 y:400 fontsize:36 font:TNR_Bold.ttf Color:BLACK text:"Learn and Use Modern C++: C++11 / C++14 / C++17 ..."
+Text x:369 y:479 fontsize:36 font:TNR_Bold.ttf Color:BLACK text:"Using data structures, better sort algorithms"
+Text x:372 y:559 fontsize:36 font:TNR_Bold.ttf Color:BLACK text:"Plan the development process"
+Text x:373 y:633 fontsize:36 font:TNR_Bold.ttf Color:BLACK text:"Using Free C++ Libraries: boost, gsl etc"
+----------
+----------
+10
+Text x:618 y:164 fontsize:36 font:TNR_Bold.ttf Color:BLUE text:"THANK YOU"
+----------

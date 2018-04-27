@@ -15,25 +15,6 @@ extern const Uint8* keyState;
 SDL_Rect screenShotRect;
 SDL_Rect srcScreenShotRect;
 
-void Timer::startClock() {
-    static clock_t startClock = clock();
-    timeElapsed = ( clock() - startClock ) / (double)CLOCKS_PER_SEC;
-    if(timeElapsed >= toStart && timeElapsed <= resetTime)
-        hasStarted = true;
-    else
-        hasStarted = false;
-    if(timeElapsed >= resetTime)
-        startClock = clock();
-}
-
-void Timer::setStartTime(double s) {
-    toStart = s;
-}
-
-void Timer::setResetTime(double r) {
-    resetTime = r;
-}
-
 void setColor(SDL_Color &color, Color c){
     if(c == RED)
         color =  {255,0,0,255};
@@ -202,7 +183,7 @@ void ScrollBar::initalise(ScreenShots & _sc) {
 void ScrollBar::calculateCurrentLevel() {
 	currentLength = abs(upperBoundY - _rect.y);
 	double per = totalLength / maxLevels;
-	currentLevel = ceil(currentLength / per);
+	currentLevel = (int)(ceil(currentLength / per));
 	if (currentLevel == 0)
 		currentLevel = 1;
 }
@@ -353,9 +334,6 @@ void ScreenShots::setCurrentImage() {
 		if (event.type == SDL_MOUSEBUTTONDOWN) {
 			SDL_GetMouseState(&x, &y);
 			if (isMouseOn(_rects[i], x, y)) {
-				//std::cout << "Mouse on rect: " << i + 1 << std::endl;
-				//std::cout << "bulkIndex: " << (bulkIndex - 1) << std::endl;
-				//std::cout << "index: " << ((bulkIndex-1) * 3) + i << std::endl;
 				currentImage = ((bulkIndex - 1) * 3) + i;
 				updateSlide();
 			}

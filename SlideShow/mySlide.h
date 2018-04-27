@@ -18,7 +18,7 @@ public:
 	std::string fileName;
 	int id = -1;
 public:
-    void loadSlide(int slideNumber , std::string fileName, SDL_Renderer *renderer);
+    friend void LoadMySlide(MySlide& _s, int slideNumber , std::string fileName, SDL_Renderer *renderer);
 	void displayInfo();
 	void save(std::string fileName);
     void renderSlide();
@@ -34,4 +34,5 @@ public:
 	std::string getStringOfImageWithName(std::string fName);
 	std::string getStringOfTextWithName(std::string fName);
 	std::string getStringOfSoundWithName(std::string _text);
+	int getTotalResources();
 };

@@ -52,5 +52,5 @@ void TextInput::textLoop() {
 	}
 	_txt.setText(text);
 	_txt.reinit();
-	inputScreen.drawRect(x_pos - 10, y_pos - 3 , 570, 35, rectColor);
+	inputScreen.drawRect(x_pos - 10, y_pos - 3 , 865, 35, rectColor);
 }

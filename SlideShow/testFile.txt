@@ -1,0 +1,18 @@
+***SlideShowApp***
+----------
+10
+Image x:975 y:116 w:200 h:200 path:tiger.jpg
+Text x:709 y:244 fontsize:20 font:TNR.ttf Color:PURPLE text:"text with spaces"
+Sound text:Doom.mp3 x:968 y:351 path:r1.mp3
+----------
+----------
+7
+Text x:200 y:300 fontsize:20 font:TNR_Bold.ttf Color:PURPLE text:"Refreshing"
+Image x:783 y:276 w:200 h:200 path:leaf.jpg
+Text x:536 y:234 fontsize:30 font:TNR.ttf Color:PURPLE text:"Slide-2"
+----------
+----------
+13
+Image x:772 y:275 w:159 h:172 path:batman.jpg
+Image x:508 y:280 w:176 h:156 path:nature.jpg
+----------

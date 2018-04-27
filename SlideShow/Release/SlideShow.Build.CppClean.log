@@ -1,6 +1,4 @@
-c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\slideshow.pch
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\vc141.pdb
-c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\stdafx.obj
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\utilities.obj
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\ui.obj
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\text.obj
@@ -18,6 +16,9 @@ c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\image.obj
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\handle.obj
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\filehandle.obj
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\button.obj
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\textinput.obj
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\slideshow.pch
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\stdafx.obj
 c:\users\akash\desktop\github\slideshow_windows_port\release\slideshow.exe
 c:\users\akash\desktop\github\slideshow_windows_port\release\slideshow.pdb
 c:\users\akash\desktop\github\slideshow_windows_port\release\slideshow.lib
@@ -28,6 +29,7 @@ c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\slideshow
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\slideshow.tlog\cl.read.1.tlog
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\slideshow.tlog\cl.write.1.tlog
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\slideshow.tlog\link.command.1.tlog
+c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\slideshow.tlog\link.delete.1.tlog
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\slideshow.tlog\link.read.1.tlog
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\slideshow.tlog\link.write.1.tlog
 c:\users\akash\desktop\github\slideshow_windows_port\slideshow\release\slideshow.tlog\slideshow.write.1u.tlog

@@ -16,18 +16,6 @@ enum Color{
     OLIVE, MAROON, PURPLE, TEAL, NAVY
 };
 
-class Timer {
-private:
-    double timeElapsed = 0.0;
-    double toStart = 0.0;
-    double resetTime = 0.0;
-public:
-    bool hasStarted = false;
-    void startClock();
-    void setResetTime(double r);
-    void setStartTime(double s);
-};
-
 class ScreenShots;
 
 class ScrollBar {
